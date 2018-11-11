@@ -1,0 +1,23 @@
+header {
+    padding: 154px 0 100px;
+  }
+  
+  @media (min-width: 992px) {
+    header {
+      padding: 156px 0 100px;
+    }
+  }
+  
+  section {
+    padding: 150px 0;
+  }
+
+  .container-margin--top{
+    margin-top: 100px;
+  }
+  .storie-row-images{
+    height: 200px;
+  }
+  .storie-img-height-size{
+    height: 200px;
+  }
