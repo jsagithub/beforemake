@@ -14012,6 +14012,7 @@ Vue.component('home', __webpack_require__(40));
 Vue.component('navbar', __webpack_require__(42));
 Vue.component('bottombar', __webpack_require__(44));
 Vue.component('stories', __webpack_require__(46));
+Vue.component('profile', __webpack_require__(53));
 
 var app = new Vue({
   el: '#app'
@@ -47761,7 +47762,7 @@ var staticRenderFns = [
             _vm._v(
               "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n             quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n             só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n             essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n             Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n             publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
             ),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("See More")])
+            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
           ]
         )
       ]),
@@ -47810,7 +47811,7 @@ var staticRenderFns = [
             _vm._v(
               "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
             ),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("See More")])
+            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
           ]
         )
       ]),
@@ -47862,7 +47863,7 @@ var staticRenderFns = [
             _vm._v(
               "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
             ),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("See More")])
+            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
           ]
         )
       ]),
@@ -47914,7 +47915,7 @@ var staticRenderFns = [
             _vm._v(
               "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
             ),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("See More")])
+            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
           ]
         )
       ]),
@@ -47937,6 +47938,116 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Profile.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3bd692e4", Component.options)
+  } else {
+    hotAPI.reload("data-v-3bd692e4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-fluid container-margin--top" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-3" }, [
+          _c("h4", [_vm._v("Projects")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "list-group" }, [
+            _c("li", { staticClass: "list-group-item active" }, [
+              _vm._v("Cras justo odio")
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-group-item" }, [
+              _vm._v("Dapibus ac facilisis in")
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-group-item" }, [
+              _vm._v("Morbi leo risus")
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-group-item" }, [
+              _vm._v("Porta ac consectetur ac")
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-group-item" }, [
+              _vm._v("Vestibulum at eros")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _vm._v("\n            2 of 2\n        ")
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3bd692e4", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

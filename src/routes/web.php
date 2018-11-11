@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/stories', function () {
     return view('stories');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
