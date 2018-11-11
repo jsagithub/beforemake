@@ -48034,7 +48034,205 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col" }, [
-          _vm._v("\n            2 of 2\n        ")
+          _c("h4", [_vm._v("Storie Title")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "container border" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("img", {
+                  staticClass: "rounded img-thumbnail",
+                  attrs: {
+                    src:
+                      "https://i0.wp.com/jerimumgeek.oportaln10.com.br/wp-content/uploads/2018/07/mang%C3%A1-One-Punch-Man.jpg"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6 text-justify" }, [
+                _vm._v(
+                  "\n                        O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                        O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                        quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                        só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                        essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                        Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                        publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col profile--gray-content profile--scroll-content"
+                },
+                [
+                  _c("h4", [_vm._v("Comments:")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "profile--info" }, [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _c("img", {
+                        staticClass: "img-fluid rounded",
+                        staticStyle: { width: "50px" },
+                        attrs: {
+                          src:
+                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                          alt: "Responsive image rounded"
+                        }
+                      }),
+                      _vm._v(
+                        " \n                                Sara Miles \n                                "
+                      ),
+                      _c("a", { staticStyle: { "font-size": "15px" } }, [
+                        _vm._v(
+                          "Laudantium veniam exercitationem expedita laborum at voluptate."
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "profile--info" }, [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _c("img", {
+                        staticClass: "img-fluid rounded",
+                        staticStyle: { width: "50px" },
+                        attrs: {
+                          src:
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
+                          alt: "Responsive image rounded"
+                        }
+                      }),
+                      _vm._v(
+                        " \n                                John Travols \n                                "
+                      ),
+                      _c("a", { staticStyle: { "font-size": "15px" } }, [
+                        _vm._v(
+                          "Laudantium veniam exercitationem expedita laborum at voluptate."
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "profile--info" }, [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _c("img", {
+                        staticClass: "img-fluid rounded",
+                        staticStyle: { width: "50px" },
+                        attrs: {
+                          src:
+                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                          alt: "Responsive image rounded"
+                        }
+                      }),
+                      _vm._v(
+                        " \n                                Sara Miles \n                                "
+                      ),
+                      _c("a", { staticStyle: { "font-size": "15px" } }, [
+                        _vm._v(
+                          "Laudantium veniam exercitationem expedita laborum at voluptate."
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("div", { staticClass: "container border" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("img", {
+                  staticClass: "rounded img-thumbnail",
+                  attrs: {
+                    src:
+                      "https://i.pinimg.com/originals/c5/5a/3d/c55a3d18e62cb0397606d46673fa7172.jpg"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6 text-justify" }, [
+                _vm._v(
+                  "\n                        O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                        O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                        quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                        só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                        essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                        Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                        publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col profile--gray-content profile--scroll-content"
+                },
+                [
+                  _c("h4", [_vm._v("Comments:")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "profile--info" }, [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _c("img", {
+                        staticClass: "img-fluid rounded",
+                        staticStyle: { width: "50px" },
+                        attrs: {
+                          src:
+                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                          alt: "Responsive image rounded"
+                        }
+                      }),
+                      _vm._v(
+                        " \n                                Sara Miles \n                                "
+                      ),
+                      _c("a", { staticStyle: { "font-size": "15px" } }, [
+                        _vm._v(
+                          "Laudantium veniam exercitationem expedita laborum at voluptate."
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "profile--info" }, [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _c("img", {
+                        staticClass: "img-fluid rounded",
+                        staticStyle: { width: "50px" },
+                        attrs: {
+                          src:
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
+                          alt: "Responsive image rounded"
+                        }
+                      }),
+                      _vm._v(
+                        " \n                                John Travols \n                                "
+                      ),
+                      _c("a", { staticStyle: { "font-size": "15px" } }, [
+                        _vm._v(
+                          "Laudantium veniam exercitationem expedita laborum at voluptate."
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "profile--info" }, [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _c("img", {
+                        staticClass: "img-fluid rounded",
+                        staticStyle: { width: "50px" },
+                        attrs: {
+                          src:
+                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                          alt: "Responsive image rounded"
+                        }
+                      }),
+                      _vm._v(
+                        " \n                                Sara Miles \n                                "
+                      ),
+                      _c("a", { staticStyle: { "font-size": "15px" } }, [
+                        _vm._v(
+                          "Laudantium veniam exercitationem expedita laborum at voluptate."
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr")
         ])
       ])
     ])
