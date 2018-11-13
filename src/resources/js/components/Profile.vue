@@ -57,7 +57,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>        
+                    </div>  
+                    <div class="row">
+                        <div class="float-left">
+                            <button class="btn btn-primary"><i class="far fa-thumbs-up"></i></button>
+                            <button class="btn btn-primary"><i class="fas fa-share-alt"></i>Share</button>      
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 <div class="container border">
@@ -104,7 +110,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>        
+                    </div>  
+                     <div class="row">
+                        <div class="float-left">
+                            <button class="btn btn-primary"><i class="far fa-thumbs-up"></i></button>
+                            <button class="btn btn-primary"><i class="fas fa-share-alt"></i>Share</button>      
+                        </div>
+                    </div>      
                 </div>
                 <hr>
                 <div class="container border">
@@ -151,7 +163,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>        
+                    </div>  
+                    <div class="row">
+                        <div class="float-left">
+                            <button class="btn btn-primary"><i class="far fa-thumbs-up"></i></button>
+                            <button class="btn btn-primary"><i class="fas fa-share-alt"></i>Share</button>      
+                        </div>
+                    </div>      
                 </div>
                 <hr>
             </div>

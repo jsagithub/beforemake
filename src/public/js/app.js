@@ -48143,6 +48143,19 @@ var staticRenderFns = [
                   ])
                 ]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "float-left" }, [
+                _c("button", { staticClass: "btn btn-primary" }, [
+                  _c("i", { staticClass: "far fa-thumbs-up" })
+                ]),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-primary" }, [
+                  _c("i", { staticClass: "fas fa-share-alt" }),
+                  _vm._v("Share")
+                ])
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -48265,6 +48278,19 @@ var staticRenderFns = [
                   ])
                 ]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "float-left" }, [
+                _c("button", { staticClass: "btn btn-primary" }, [
+                  _c("i", { staticClass: "far fa-thumbs-up" })
+                ]),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-primary" }, [
+                  _c("i", { staticClass: "fas fa-share-alt" }),
+                  _vm._v("Share")
+                ])
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -48387,6 +48413,19 @@ var staticRenderFns = [
                   ])
                 ]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "float-left" }, [
+                _c("button", { staticClass: "btn btn-primary" }, [
+                  _c("i", { staticClass: "far fa-thumbs-up" })
+                ]),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-primary" }, [
+                  _c("i", { staticClass: "fas fa-share-alt" }),
+                  _vm._v("Share")
+                ])
+              ])
             ])
           ]),
           _vm._v(" "),
