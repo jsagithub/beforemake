@@ -50,6 +50,12 @@
                                     <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
                             </h4>
                             </div> 
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Comment</button>
+                                </div>
+                            </div>
                         </div>
                     </div>        
                 </div>
@@ -91,6 +97,12 @@
                                     <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
                             </h4>
                             </div> 
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Comment</button>
+                                </div>
+                            </div>
                         </div>
                     </div>        
                 </div>
@@ -132,11 +144,26 @@
                                     <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
                             </h4>
                             </div> 
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Comment</button>
+                                </div>
+                            </div>
                         </div>
                     </div>        
                 </div>
                 <hr>
             </div>
+            
         </div>
+        <div class="flex-row-reverse">
+                <div class="float-right">
+                    <button class="btn btn-primary"><i class="fas fa-print"></i> Print</button>
+                    <button class="btn btn-primary"><i class="far fa-thumbs-up"></i></button>
+                    <button class="btn btn-primary"><i class="fas fa-share-alt"></i>Share</button>
+                    <button class="btn btn-primary"><i class="fab fa-kickstarter-k"></i>ickstarter</button>
+                </div>
+            </div>
     </div>
 </template>

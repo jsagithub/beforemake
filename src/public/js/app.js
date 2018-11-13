@@ -13990,7 +13990,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(48);
+module.exports = __webpack_require__(50);
 
 
 /***/ }),
@@ -14012,7 +14012,7 @@ Vue.component('home', __webpack_require__(40));
 Vue.component('navbar', __webpack_require__(42));
 Vue.component('bottombar', __webpack_require__(44));
 Vue.component('stories', __webpack_require__(46));
-Vue.component('profile', __webpack_require__(53));
+Vue.component('profile', __webpack_require__(48));
 
 var app = new Vue({
   el: '#app'
@@ -47935,16 +47935,6 @@ if (false) {
 
 /***/ }),
 /* 48 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -47952,7 +47942,7 @@ var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(49)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47991,7 +47981,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 54 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48127,6 +48117,29 @@ var staticRenderFns = [
                         )
                       ])
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Write a message",
+                        "aria-label": "Write a message",
+                        "aria-describedby": "button-addon2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group-append" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-secondary",
+                          attrs: { type: "button", id: "button-addon2" }
+                        },
+                        [_vm._v("Comment")]
+                      )
+                    ])
                   ])
                 ]
               )
@@ -48225,6 +48238,29 @@ var staticRenderFns = [
                           "Laudantium veniam exercitationem expedita laborum at voluptate."
                         )
                       ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Write a message",
+                        "aria-label": "Write a message",
+                        "aria-describedby": "button-addon2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group-append" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-secondary",
+                          attrs: { type: "button", id: "button-addon2" }
+                        },
+                        [_vm._v("Comment")]
+                      )
                     ])
                   ])
                 ]
@@ -48325,6 +48361,29 @@ var staticRenderFns = [
                         )
                       ])
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Write a message",
+                        "aria-label": "Write a message",
+                        "aria-describedby": "button-addon2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group-append" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-secondary",
+                          attrs: { type: "button", id: "button-addon2" }
+                        },
+                        [_vm._v("Comment")]
+                      )
+                    ])
                   ])
                 ]
               )
@@ -48332,6 +48391,29 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("hr")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex-row-reverse" }, [
+        _c("div", { staticClass: "float-right" }, [
+          _c("button", { staticClass: "btn btn-primary" }, [
+            _c("i", { staticClass: "fas fa-print" }),
+            _vm._v(" Print")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-primary" }, [
+            _c("i", { staticClass: "far fa-thumbs-up" })
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-primary" }, [
+            _c("i", { staticClass: "fas fa-share-alt" }),
+            _vm._v("Share")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-primary" }, [
+            _c("i", { staticClass: "fab fa-kickstarter-k" }),
+            _vm._v("ickstarter")
+          ])
         ])
       ])
     ])
@@ -48345,6 +48427,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-3bd692e4", module.exports)
   }
 }
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
