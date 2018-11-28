@@ -11,8 +11,9 @@ services:
       volumes:
         - .:/application
       environment:
+        - TERM=xterm
         - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=beaufourmake
+        - MYSQL_DATABASE=befourmake
         - MYSQL_USER=root
         - MYSQL_PASSWORD=root
       ports:
