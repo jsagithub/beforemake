@@ -22,3 +22,9 @@ Route::post('register', 'UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'UserController@details');
 });
+//Projects
+Route::get('projects', 'ProjectsController@index');
+Route::get('projects/{id}', 'ProjectsController@show');
+Route::post('projects', 'ProjectsController@store');
+Route::put('projects', 'ProjectsController@store'); 
+Route::delete('projects/{id}', 'ProjectsController@destroy');
