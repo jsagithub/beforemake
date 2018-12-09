@@ -28,3 +28,9 @@ Route::get('projects/{id}', 'ProjectsController@show');
 Route::post('projects', 'ProjectsController@store');
 Route::put('projects', 'ProjectsController@store'); 
 Route::delete('projects/{id}', 'ProjectsController@destroy');
+//Stories
+Route::get('stories', 'StoriesController@index');
+Route::get('stories/{id}', 'StoriesController@show');
+Route::post('stories', 'StoriesController@store');
+Route::put('stories', 'StoriesController@store'); 
+Route::delete('stories/{id}', 'StoriesController@destroy');
