@@ -34,3 +34,9 @@ Route::get('stories/{id}', 'StoriesController@show');
 Route::post('stories', 'StoriesController@store');
 Route::put('stories', 'StoriesController@store'); 
 Route::delete('stories/{id}', 'StoriesController@destroy');
+//Comments
+Route::get('comments', 'CommentsController@index');
+Route::get('comment/{id}', 'CommentsController@show');
+Route::post('comment', 'CommentsController@store');
+Route::put('comment', 'CommentsController@store'); 
+Route::delete('comment/{id}', 'CommentsController@destroy');
