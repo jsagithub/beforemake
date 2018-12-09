@@ -40,3 +40,9 @@ Route::get('comment/{id}', 'CommentsController@show');
 Route::post('comment', 'CommentsController@store');
 Route::put('comment', 'CommentsController@store'); 
 Route::delete('comment/{id}', 'CommentsController@destroy');
+//Images
+Route::get('images', 'ImagesController@index');
+Route::get('images/{id}', 'ImagesController@show');
+Route::post('images', 'ImagesController@store');
+Route::put('images', 'ImagesController@store'); 
+Route::delete('images/{id}', 'ImagesController@destroy');
