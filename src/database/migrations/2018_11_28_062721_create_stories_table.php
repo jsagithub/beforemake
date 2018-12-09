@@ -17,7 +17,7 @@ class CreateStoriesTable extends Migration
             $table->increments('id');
             $table->integer('id_project')->unsigned();
             $table->foreign('id_project')
-                  ->references('id')->on('project');
+                  ->references('id')->on('projects');
             $table->string('description');
             $table->integer('nlikes');
             $table->timestamps();

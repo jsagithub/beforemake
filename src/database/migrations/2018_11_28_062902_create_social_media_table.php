@@ -13,11 +13,11 @@ class CreateSocialMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_media', function (Blueprint $table) {
+        Schema::create('social_medias', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_project')->unsigned();
             $table->foreign('id_project')
-                ->references('id')->on('project');
+                ->references('id')->on('projects');
             $table->string('name');
             $table->string('icon');
             $table->string('url');
