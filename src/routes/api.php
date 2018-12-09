@@ -46,3 +46,9 @@ Route::get('images/{id}', 'ImagesController@show');
 Route::post('images', 'ImagesController@store');
 Route::put('images', 'ImagesController@store'); 
 Route::delete('images/{id}', 'ImagesController@destroy');
+//Social Media
+Route::get('social', 'SocialMediasController@index');
+Route::get('social/{id}', 'SocialMediasController@show');
+Route::post('social', 'SocialMediasController@store');
+Route::put('social', 'SocialMediasController@store');
+Route::delete('social/{id}', 'SocialMediasController@destroy');
