@@ -21,6 +21,9 @@ class CreateSocialMediaTable extends Migration
             $table->string('name');
             $table->string('icon');
             $table->string('url');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')
+                  ->references('id')->on('users');
             $table->timestamps();
         });
     }

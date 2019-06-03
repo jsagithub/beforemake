@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoriesTable extends Migration
+class CreateVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateStoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('stories', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_project')->unsigned();
-            $table->foreign('id_project')
-                  ->references('id')->on('projects');
-            $table->string('description');
-            $table->integer('nlikes');
+            $table->integer('id_stories')->unsigned();
+            $table->foreign('id_stories')
+                ->references('id')->on('stories');
+            $table->string('url');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')
                   ->references('id')->on('users');
@@ -34,6 +33,6 @@ class CreateStoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stories');
+        Schema::dropIfExists('videos');
     }
 }

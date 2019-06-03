@@ -52,6 +52,11 @@ class ImagesController extends Controller
         return new ImagesResource($image);
     }
 
+    public function show_by_storie($id_storie){
+        $images = Images::ImagesByStorie($id_storie);
+        return $images;
+    }
+
     /**
      * Remove the specified resource from storage.
      *

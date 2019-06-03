@@ -53,6 +53,10 @@ class StoriesController extends Controller
         return new StoriesResource($storie);
     }
 
+    public function show_by_project($id_project){
+        $stories = Stories::StoriesByUser($id_project);
+        return $stories;
+    }
     /**
      * Remove the specified resource from storage.
      *

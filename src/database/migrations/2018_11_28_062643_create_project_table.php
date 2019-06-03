@@ -21,6 +21,9 @@ class CreateProjectTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->integer('nlikes');
+            $table->integer('id_project_status')->unsigned();
+            $table->foreign('id_project_status')
+                  ->references('id')->on('project_statuses');
             $table->timestamps();
         });
     }

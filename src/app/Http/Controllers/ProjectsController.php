@@ -54,6 +54,15 @@ class ProjectsController extends Controller
         return new ProjectsResource($project);
     }
 
+    public function show_by_user($id_user){
+        $projects = Projects::ProjectsByUser($id_user);
+        return $projects;
+    }
+
+    public function show_by_status($id_status){
+        $projects = Projects::ProjectsByStatus($id_status);
+        return $projects;
+    }
     /**
      * Remove the specified resource from storage.
      *

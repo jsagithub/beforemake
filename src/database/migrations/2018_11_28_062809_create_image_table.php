@@ -19,6 +19,9 @@ class CreateImageTable extends Migration
             $table->foreign('id_stories')
                 ->references('id')->on('stories');
             $table->string('url');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')
+                  ->references('id')->on('users');
             $table->timestamps();
         });
     }

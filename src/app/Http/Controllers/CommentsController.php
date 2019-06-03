@@ -48,6 +48,10 @@ class CommentsController extends Controller
         return new CommentsResource($comment);
     }
 
+    public function show_by_storie($id_storie){
+        $comments = Comments::CommentsByStorie($id_storie);
+        return $comments;
+    }
     /**
      * Remove the specified resource from storage.
      *

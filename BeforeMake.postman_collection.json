@@ -1,0 +1,689 @@
+{
+	"info": {
+		"_postman_id": "0573b601-5c24-4140-8aa0-490d5c164a4d",
+		"name": "BeforeMake",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/projects",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/projects/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"projects",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Projects",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/projects/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"projects",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Projects",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Project 1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Description 1",
+							"type": "text"
+						},
+						{
+							"key": "nlikes",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/projects",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Projects",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"project_id\": 1,\n        \"id_user\": \"1\",\n        \"title\": \"Project 1\",\n        \"description\": \"Description 1\",\n        \"nlikes\": \"2\",\n        \"updated_at\": \"2018-12-09 16:59:45\",\n        \"created_at\": \"2018-12-09 16:59:45\"\n    }"
+				},
+				"url": {
+					"raw": "localhost/api/projects",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Stories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/stories",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"stories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Stories By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/stories/2",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"stories",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Stories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_project",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Description 1",
+							"type": "text"
+						},
+						{
+							"key": "nlikes",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/stories",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"stories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Stories",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"storie_id\": 3,\n        \"id_project\": \"2\",\n        \"description\": \"Description 2\",\n        \"nlikes\": \"2\",\n        \"updated_at\": \"2018-12-09 17:38:49\",\n        \"created_at\": \"2018-12-09 17:38:49\"\n    }"
+				},
+				"url": {
+					"raw": "localhost/api/stories",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"stories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Stories",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/stories/3",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"stories",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/comments",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Comments By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/comment/2",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"comment",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_stories",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "Teste",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/comment",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Comment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"comment_id\": 2,\n         \"id_user\": 1,\n        \"id_stories\": 2,\n        \"comment\": \"Teste 1\"\n    }"
+				},
+				"url": {
+					"raw": "localhost/api/comment",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Comments",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/comment/2",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"comment",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Images",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/images",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Images By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/images/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"images",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Images",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_stories",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "Teste url",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/images",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Images",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"image_id\": 1,\n        \"id_stories\": \"2\",\n        \"url\": \"Teste url 2\",\n        \"updated_at\": \"2018-12-09 18:40:50\",\n        \"created_at\": \"2018-12-09 18:40:50\"\n    }"
+				},
+				"url": {
+					"raw": "localhost/api/images",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Images",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/images/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"images",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Social",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/social",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"social"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Social By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/social/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"social",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Social",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_project",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "FaceBook",
+							"type": "text"
+						},
+						{
+							"key": "icon",
+							"value": "icon",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "urls",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/social",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"social"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Social",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n       \"social_id\": 1,\n        \"id_project\": \"2\",\n        \"name\": \"FaceBook\",\n        \"icon\": \"icon\",\n        \"url\": \"urls\",\n        \"updated_at\": \"2018-12-09 20:16:20\",\n        \"created_at\": \"2018-12-09 20:16:20\"\n    }"
+				},
+				"url": {
+					"raw": "localhost/api/social",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"social"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Social",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/social/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"social",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

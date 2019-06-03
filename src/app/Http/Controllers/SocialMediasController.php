@@ -54,6 +54,11 @@ class SocialMediasController extends Controller
         return new SocialMediasResource($social);
     }
 
+    public function show_by_project($id_project){
+        $socialmedias = SocialMedias::SocialMediasByProject($id_project);
+        return $socialmedias;
+    }
+
     /**
      * Remove the specified resource from storage.
      *
