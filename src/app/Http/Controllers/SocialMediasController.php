@@ -36,7 +36,8 @@ class SocialMediasController extends Controller
         $social->name = $request->input('name');
         $social->icon = $request->input('icon');
         $social->url = $request->input('url');
-       
+        //Need to be changed to Auth
+        $social->id_user = 1;
         if ($social->save()) {
            return new SocialMediasResource($social);
         }

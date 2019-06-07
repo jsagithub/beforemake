@@ -14,6 +14,7 @@ Vue.component('navbar', require('./components/Navbar.vue'));
 Vue.component('bottombar', require('./components/Bottombar.vue'));
 Vue.component('stories', require('./components/Stories.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
+Vue.component('idea', require('./components/Idea.vue'));
 
 const app = new Vue({
     el: '#app'

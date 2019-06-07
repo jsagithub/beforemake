@@ -32,11 +32,12 @@ class ProjectsController extends Controller
         $project = $request->isMethod('put') ? Projects::findOrFail($request->project_id) : new Projects;
         
         $project->id = $request->input('project_id');
-        $project->id_user = $request->input('id_user');        
+        //need to be change to Auth
+        $project->id_user = 1;        
         $project->title = $request->input('title');
         $project->description = $request->input('description');
         $project->nlikes = $request->input('nlikes');
-       
+        $project->id_project_status = $request->input('id_project_status');
         if ($project->save()) {
            return new ProjectsResource($project);
         }

@@ -34,7 +34,8 @@ class VideosController extends Controller
         $video->id = $request->input('video_id');
         $video->id_stories = $request->input('id_stories');        
         $video->url = $request->input('url');
-        $video->id_user = $request->input('id_user');
+        //Need to be changed to Auth
+        $video->id_user = 1;
         if ($video->save()) {
            return new VideosResource($video);
         }

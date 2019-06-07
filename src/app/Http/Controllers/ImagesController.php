@@ -34,7 +34,8 @@ class ImagesController extends Controller
         $image->id = $request->input('image_id');
         $image->id_stories = $request->input('id_stories');
         $image->url = $request->input('url');
-       
+        //Need to be changed to Auth
+        $image->id_user = 1;
         if ($image->save()) {
            return new ImagesResource($image);
         }

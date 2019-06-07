@@ -377,33 +377,6 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file.
@@ -507,6 +480,33 @@ module.exports = function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
@@ -3154,7 +3154,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 5 */
@@ -13990,7 +13990,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
@@ -14013,6 +14013,7 @@ Vue.component('navbar', __webpack_require__(42));
 Vue.component('bottombar', __webpack_require__(44));
 Vue.component('stories', __webpack_require__(46));
 Vue.component('profile', __webpack_require__(48));
+Vue.component('idea', __webpack_require__(51));
 
 var app = new Vue({
   el: '#app'
@@ -31192,7 +31193,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(16)(module)))
 
 /***/ }),
 /* 16 */
@@ -47024,7 +47025,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(38).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(38).setImmediate))
 
 /***/ }),
 /* 38 */
@@ -47094,7 +47095,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 39 */
@@ -47287,14 +47288,14 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(7)))
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -47427,7 +47428,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -47530,6 +47531,28 @@ var staticRenderFns = [
                     "a",
                     {
                       staticClass: "nav-link js-scroll-trigger",
+                      attrs: { href: "/profile" }
+                    },
+                    [_vm._v("Profile")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link js-scroll-trigger",
+                      attrs: { href: "/stories" }
+                    },
+                    [_vm._v("Stories")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link js-scroll-trigger",
                       attrs: { href: "#about" }
                     },
                     [_vm._v("About")]
@@ -47579,7 +47602,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -47659,7 +47682,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -47718,209 +47741,410 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "container container-margin--top border" }, [
-        _c("h5", [_vm._v("Storie Title")]),
+        _c("h4", [_vm._v("Storie Title")]),
         _vm._v(" "),
-        _c("div", { staticClass: "row storie-row-images text-center" }, [
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://i0.wp.com/jerimumgeek.oportaln10.com.br/wp-content/uploads/2018/07/mang%C3%A1-One-Punch-Man.jpg"
-              }
-            })
+        _c("div", { staticClass: "container border" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("img", {
+                staticClass: "rounded img-thumbnail",
+                attrs: {
+                  src:
+                    "https://i0.wp.com/jerimumgeek.oportaln10.com.br/wp-content/uploads/2018/07/mang%C3%A1-One-Punch-Man.jpg"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 text-justify" }, [
+              _vm._v(
+                "\n                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col profile--gray-content profile--scroll-content"
+              },
+              [
+                _c("h4", [_vm._v("Comments:")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            Sara Miles \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            John Travols \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            Sara Miles \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Write a message",
+                      "aria-label": "Write a message",
+                      "aria-describedby": "button-addon2"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-secondary",
+                        attrs: { type: "button", id: "button-addon2" }
+                      },
+                      [_vm._v("Comment")]
+                    )
+                  ])
+                ])
+              ]
+            )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://i.pinimg.com/originals/c5/5a/3d/c55a3d18e62cb0397606d46673fa7172.jpg"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://i1.wp.com/otakubfx.com.br/wp-content/uploads/2018/09/curso-de-desenho-e-manga.jpg"
-              }
-            })
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "float-left" }, [
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _c("i", { staticClass: "far fa-thumbs-up" })
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _c("i", { staticClass: "fas fa-share-alt" }),
+                _vm._v("Share")
+              ])
+            ])
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "row text-justify",
-            staticStyle: { "margin-top": "10px" }
-          },
-          [
-            _vm._v(
-              "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n             quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n             só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n             essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n             Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n             publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
-            ),
-            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container border" }, [
-        _c("h5", [_vm._v("Storie Title")]),
+        _c("hr"),
         _vm._v(" "),
-        _c("div", { staticClass: "row storie-row-images text-center" }, [
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://media-cdn.tripadvisor.com/media/photo-w/06/64/e9/88/roma.jpg"
-              }
-            })
+        _c("div", { staticClass: "container border" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("img", {
+                staticClass: "rounded img-thumbnail",
+                attrs: {
+                  src:
+                    "https://i.pinimg.com/originals/c5/5a/3d/c55a3d18e62cb0397606d46673fa7172.jpg"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 text-justify" }, [
+              _vm._v(
+                "\n                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col profile--gray-content profile--scroll-content"
+              },
+              [
+                _c("h4", [_vm._v("Comments:")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            Sara Miles \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            John Travols \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            Sara Miles \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Write a message",
+                      "aria-label": "Write a message",
+                      "aria-describedby": "button-addon2"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-secondary",
+                        attrs: { type: "button", id: "button-addon2" }
+                      },
+                      [_vm._v("Comment")]
+                    )
+                  ])
+                ])
+              ]
+            )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://www.tripsavvy.com/thmb/S9defq6-i3z_LfQ_4v7E8J5pJ0o=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-534753645-584ed9083df78c491ee998c4.jpg"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: { src: "https://www.airpano.com/files/rome_02_big.jpg" }
-            })
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "float-left" }, [
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _c("i", { staticClass: "far fa-thumbs-up" })
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _c("i", { staticClass: "fas fa-share-alt" }),
+                _vm._v("Share")
+              ])
+            ])
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "row text-justify",
-            staticStyle: { "margin-top": "10px" }
-          },
-          [
-            _vm._v(
-              "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
-            ),
-            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container border" }, [
-        _c("h5", [_vm._v("Storie Title")]),
+        _c("hr"),
         _vm._v(" "),
-        _c("div", { staticClass: "row storie-row-images text-center" }, [
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://www.minco.com/~/media/images/minco/newstuff/semiconductor.ashx?h=400&la=en&w=848"
-              }
-            })
+        _c("div", { staticClass: "container border" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("img", {
+                staticClass: "rounded img-thumbnail",
+                attrs: {
+                  src:
+                    "https://i1.wp.com/otakubfx.com.br/wp-content/uploads/2018/09/curso-de-desenho-e-manga.jpg"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 text-justify" }, [
+              _vm._v(
+                "\n                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col profile--gray-content profile--scroll-content"
+              },
+              [
+                _c("h4", [_vm._v("Comments:")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            Sara Miles \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            John Travols \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "profile--info" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { width: "50px" },
+                      attrs: {
+                        src:
+                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
+                        alt: "Responsive image rounded"
+                      }
+                    }),
+                    _vm._v(
+                      " \n                            Sara Miles \n                            "
+                    ),
+                    _c("a", { staticStyle: { "font-size": "15px" } }, [
+                      _vm._v(
+                        "Laudantium veniam exercitationem expedita laborum at voluptate."
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Write a message",
+                      "aria-label": "Write a message",
+                      "aria-describedby": "button-addon2"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-secondary",
+                        attrs: { type: "button", id: "button-addon2" }
+                      },
+                      [_vm._v("Comment")]
+                    )
+                  ])
+                ])
+              ]
+            )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://images.theconversation.com/files/176259/original/file-20170629-16051-lydbvr.jpg"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://lh3.googleusercontent.com/2eP41b44FhlxFzKF1AnN2WD0AWkm_W8z0Tng3KYolvdk6lUpzjTlZR69f25hqhx_CjspryGgm0vv3KGRytIgttIlEQ=w1440-h810-p"
-              }
-            })
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "float-left" }, [
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _c("i", { staticClass: "far fa-thumbs-up" })
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _c("i", { staticClass: "fas fa-share-alt" }),
+                _vm._v("Share")
+              ])
+            ])
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "row text-justify",
-            staticStyle: { "margin-top": "10px" }
-          },
-          [
-            _vm._v(
-              "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
-            ),
-            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container border" }, [
-        _c("h5", [_vm._v("Storie Title")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row storie-row-images text-center" }, [
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://i0.wp.com/jerimumgeek.oportaln10.com.br/wp-content/uploads/2018/07/mang%C3%A1-One-Punch-Man.jpg"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://i.pinimg.com/originals/c5/5a/3d/c55a3d18e62cb0397606d46673fa7172.jpg"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm" }, [
-            _c("img", {
-              staticClass: "rounded img-thumbnail storie-img-height-size",
-              attrs: {
-                src:
-                  "https://i1.wp.com/otakubfx.com.br/wp-content/uploads/2018/09/curso-de-desenho-e-manga.jpg"
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "row text-justify",
-            staticStyle: { "margin-top": "10px" }
-          },
-          [
-            _vm._v(
-              "\n            O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum....\n            "
-            ),
-            _c("a", { attrs: { href: "/profile" } }, [_vm._v("See More")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("hr")
+        _c("hr")
+      ])
     ])
   }
 ]
@@ -47938,11 +48162,11 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(49)
 /* template */
-var __vue_template__ = __webpack_require__(49)
+var __vue_template__ = __webpack_require__(50)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47982,477 +48206,131 @@ module.exports = Component.exports
 
 /***/ }),
 /* 49 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            show_idea: false
+        };
+    }
+});
+
+/***/ }),
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container-fluid container-margin--top" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-3" }, [
+        _c("h4", [_vm._v("Projects")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list-group" }, [
+          _c(
+            "li",
+            {
+              staticClass: "list-group-item active",
+              on: {
+                click: function($event) {
+                  _vm.show_idea = !_vm.show_idea
+                }
+              }
+            },
+            [_vm._v("Cras justo odio")]
+          ),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _vm._v("Dapibus ac facilisis in")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _vm._v("Morbi leo risus")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _vm._v("Porta ac consectetur ac")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _vm._v("Vestibulum at eros")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col" },
+        [
+          !_vm.show_idea ? _c("idea") : _vm._e(),
+          _vm._v(" "),
+          _vm.show_idea ? _c("stories") : _vm._e()
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid container-margin--top" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-3" }, [
-          _c("h4", [_vm._v("Projects")]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "list-group" }, [
-            _c("li", { staticClass: "list-group-item active" }, [
-              _vm._v("Cras justo odio")
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _vm._v("Dapibus ac facilisis in")
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _vm._v("Morbi leo risus")
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _vm._v("Porta ac consectetur ac")
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _vm._v("Vestibulum at eros")
-            ])
-          ])
+    return _c("div", { staticClass: "flex-row-reverse" }, [
+      _c("div", { staticClass: "float-right" }, [
+        _c("button", { staticClass: "btn btn-primary" }, [
+          _c("i", { staticClass: "fas fa-print" }),
+          _vm._v(" Print")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("h4", [_vm._v("Storie Title")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "container border" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col" }, [
-                _c("img", {
-                  staticClass: "rounded img-thumbnail",
-                  attrs: {
-                    src:
-                      "https://i0.wp.com/jerimumgeek.oportaln10.com.br/wp-content/uploads/2018/07/mang%C3%A1-One-Punch-Man.jpg"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 text-justify" }, [
-                _vm._v(
-                  "\n                        O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                        O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                        quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                        só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                        essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                        Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                        publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col profile--gray-content profile--scroll-content"
-                },
-                [
-                  _c("h4", [_vm._v("Comments:")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                Sara Miles \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                John Travols \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                Sara Miles \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group mb-3" }, [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Write a message",
-                        "aria-label": "Write a message",
-                        "aria-describedby": "button-addon2"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "input-group-append" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-outline-secondary",
-                          attrs: { type: "button", id: "button-addon2" }
-                        },
-                        [_vm._v("Comment")]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "float-left" }, [
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _c("i", { staticClass: "far fa-thumbs-up" })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _c("i", { staticClass: "fas fa-share-alt" }),
-                  _vm._v("Share")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("div", { staticClass: "container border" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col" }, [
-                _c("img", {
-                  staticClass: "rounded img-thumbnail",
-                  attrs: {
-                    src:
-                      "https://i.pinimg.com/originals/c5/5a/3d/c55a3d18e62cb0397606d46673fa7172.jpg"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 text-justify" }, [
-                _vm._v(
-                  "\n                        O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                        O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                        quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                        só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                        essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                        Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                        publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col profile--gray-content profile--scroll-content"
-                },
-                [
-                  _c("h4", [_vm._v("Comments:")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                Sara Miles \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                John Travols \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                Sara Miles \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group mb-3" }, [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Write a message",
-                        "aria-label": "Write a message",
-                        "aria-describedby": "button-addon2"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "input-group-append" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-outline-secondary",
-                          attrs: { type: "button", id: "button-addon2" }
-                        },
-                        [_vm._v("Comment")]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "float-left" }, [
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _c("i", { staticClass: "far fa-thumbs-up" })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _c("i", { staticClass: "fas fa-share-alt" }),
-                  _vm._v("Share")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("div", { staticClass: "container border" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col" }, [
-                _c("img", {
-                  staticClass: "rounded img-thumbnail",
-                  attrs: {
-                    src:
-                      "https://i1.wp.com/otakubfx.com.br/wp-content/uploads/2018/09/curso-de-desenho-e-manga.jpg"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 text-justify" }, [
-                _vm._v(
-                  "\n                        O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                        O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                        quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                        só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                        essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                        Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                        publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col profile--gray-content profile--scroll-content"
-                },
-                [
-                  _c("h4", [_vm._v("Comments:")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                Sara Miles \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                John Travols \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile--info" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _c("img", {
-                        staticClass: "img-fluid rounded",
-                        staticStyle: { width: "50px" },
-                        attrs: {
-                          src:
-                            "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                          alt: "Responsive image rounded"
-                        }
-                      }),
-                      _vm._v(
-                        " \n                                Sara Miles \n                                "
-                      ),
-                      _c("a", { staticStyle: { "font-size": "15px" } }, [
-                        _vm._v(
-                          "Laudantium veniam exercitationem expedita laborum at voluptate."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group mb-3" }, [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Write a message",
-                        "aria-label": "Write a message",
-                        "aria-describedby": "button-addon2"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "input-group-append" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-outline-secondary",
-                          attrs: { type: "button", id: "button-addon2" }
-                        },
-                        [_vm._v("Comment")]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "float-left" }, [
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _c("i", { staticClass: "far fa-thumbs-up" })
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _c("i", { staticClass: "fas fa-share-alt" }),
-                  _vm._v("Share")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("hr")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex-row-reverse" }, [
-        _c("div", { staticClass: "float-right" }, [
-          _c("button", { staticClass: "btn btn-primary" }, [
-            _c("i", { staticClass: "fas fa-print" }),
-            _vm._v(" Print")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary" }, [
-            _c("i", { staticClass: "far fa-thumbs-up" })
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary" }, [
-            _c("i", { staticClass: "fas fa-share-alt" }),
-            _vm._v("Share")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary" }, [
-            _c("i", { staticClass: "fab fa-kickstarter-k" }),
-            _vm._v("ickstarter")
-          ])
+        _c("button", { staticClass: "btn btn-primary" }, [
+          _c("i", { staticClass: "far fa-thumbs-up" })
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-primary" }, [
+          _c("i", { staticClass: "fas fa-share-alt" }),
+          _vm._v("Share")
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-primary" }, [
+          _c("i", { staticClass: "fab fa-kickstarter-k" }),
+          _vm._v("ickstarter")
         ])
       ])
     ])
@@ -48468,7 +48346,839 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(52)
+/* template */
+var __vue_template__ = __webpack_require__(53)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Idea.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ca7b3b3c", Component.options)
+  } else {
+    hotAPI.reload("data-v-ca7b3b3c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            project_title: '',
+            project_description: '',
+            youtube_url: '',
+            instagram_url: '',
+            twitter_url: '',
+            facebook_url: '',
+            stories: [{ images: [], videos: [] }],
+            form: {
+                image_url: [],
+                video_url: []
+            }
+
+        };
+    },
+
+    methods: {
+        addStorieForm: function addStorieForm() {
+            this.stories.push({ images: [], videos: [] });
+        },
+        removeStorieForm: function removeStorieForm(position) {
+            this.stories.splice(position, 1);
+        },
+        addImage: function addImage(index, url_img) {
+            this.stories[index].images.push(url_img);
+        },
+        addVideo: function addVideo(index, url_video) {
+            this.stories[index].videos.push(url_video);
+        },
+        saveProject: function saveProject() {
+            var _this = this;
+
+            var data = {
+                title: this.project_title,
+                description: this.project_description,
+                nlikes: 0,
+                id_project_status: 1
+            };
+            axios.post('/api/projects', data).then(function (response) {
+                if (response.status === 201) {
+                    _this.saveStories(response.data.data.id);
+                    _this.saveSocialMedia(response.data.data.id);
+                    _this.addProjectRanking(response.data.data.id, 1);
+                }
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        saveStories: function saveStories(id_project) {
+            var _this2 = this;
+
+            this.stories.forEach(function (storie) {
+                var data = {
+                    id_project: id_project,
+                    description: storie.description,
+                    nlikes: 0
+                };
+                axios.post('/api/stories', data).then(function (response) {
+                    if (response.status === 201) {
+                        _this2.saveImages(response.data.data.id, storie.images);
+                        _this2.saveVideos(response.data.data.id, storie.videos);
+                    }
+                }).catch(function (error) {
+                    console.log(error.response);
+                });
+            });
+        },
+        saveImages: function saveImages(id_storie, images) {
+            images.forEach(function (image) {
+                var data = {
+                    id_stories: id_storie,
+                    url: image
+                };
+                axios.post('/api/images', data).then(function (response) {}).catch(function (error) {
+                    console.log(error.response);
+                });
+            });
+        },
+        saveVideos: function saveVideos(id_storie, videos) {
+            videos.forEach(function (video) {
+                var data = {
+                    id_stories: id_storie,
+                    url: video
+                };
+                console.log(data);
+                axios.post('/api/videos', data).then(function (response) {}).catch(function (error) {
+                    console.log(error.response);
+                });
+            });
+        },
+        saveSocialMedia: function saveSocialMedia(id_project) {
+            if (this.youtube_url != '') {
+                var data = {
+                    id_project: id_project,
+                    name: "Youtube",
+                    icon: "youtube_icon",
+                    url: this.youtube_url
+                };
+                this.sentDataSocialMedia(data);
+            }
+            if (this.instagram_url != '') {
+                var _data = {
+                    id_project: id_project,
+                    name: "Instagram",
+                    icon: "instagram_icon",
+                    url: this.instagram_url
+                };
+                this.sentDataSocialMedia(_data);
+            }
+            if (this.twitter_url != '') {
+                var _data2 = {
+                    id_project: id_project,
+                    name: "Twitter",
+                    icon: "twitter_icon",
+                    url: this.twitter_url
+                };
+                this.sentDataSocialMedia(_data2);
+            }
+            if (this.facebook_url) {
+                var _data3 = {
+                    id_project: id_project,
+                    name: "Facebook",
+                    icon: "facebook_icon",
+                    url: this.facebook_url
+                };
+                this.sentDataSocialMedia(_data3);
+            }
+        },
+        sentDataSocialMedia: function sentDataSocialMedia(data) {
+            axios.post('/api/social', data).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        addProjectRanking: function addProjectRanking(id_project, id_project_status) {
+            var data = {
+                id_project: id_project,
+                position: 0,
+                id_project_status: id_project_status
+            };
+            axios.post('/api/rankings', data).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h5", [_vm._v("New Project")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      [
+        _c("div", { staticClass: "form-row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.project_title,
+                  expression: "project_title"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Project name" },
+              domProps: { value: _vm.project_title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.project_title = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.project_description,
+                  expression: "project_description"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Project Description" },
+              domProps: { value: _vm.project_description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.project_description = $event.target.value
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-row" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.youtube_url,
+                expression: "youtube_url"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Youtube Link" },
+            domProps: { value: _vm.youtube_url },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.youtube_url = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.instagram_url,
+                expression: "instagram_url"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Instagram Link" },
+            domProps: { value: _vm.instagram_url },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.instagram_url = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.twitter_url,
+                expression: "twitter_url"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Twitter Link" },
+            domProps: { value: _vm.twitter_url },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.twitter_url = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.facebook_url,
+                expression: "facebook_url"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Facebook Link" },
+            domProps: { value: _vm.facebook_url },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.facebook_url = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("h6", [_vm._v("Stories")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success",
+            attrs: { type: "button" },
+            on: { click: _vm.addStorieForm }
+          },
+          [_vm._v("+")]
+        ),
+        _vm._v(" "),
+        _vm._l(_vm.stories, function(storie, index) {
+          return _c("div", { staticClass: "form-row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: storie.description,
+                    expression: "storie.description"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "storie_description",
+                  placeholder: "Storie Description",
+                  rows: "3"
+                },
+                domProps: { value: storie.description },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(storie, "description", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.image_url[index],
+                      expression: "form.image_url[index]"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Image Link",
+                    "aria-label": "Image Link"
+                  },
+                  domProps: { value: _vm.form.image_url[index] },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form.image_url, index, $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-secondary",
+                      attrs: { type: "button", id: "button-addon2" },
+                      on: {
+                        click: function($event) {
+                          _vm.addImage(index, _vm.form.image_url[index])
+                        }
+                      }
+                    },
+                    [_vm._v("Add")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "carousel slide",
+                    attrs: {
+                      id: "carouselExampleControls",
+                      "data-ride": "carousel"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "carousel-inner" },
+                      [
+                        _vm._m(0, true),
+                        _vm._v(" "),
+                        _vm._l(storie.images, function(image) {
+                          return _c("div", { staticClass: "carousel-item" }, [
+                            _c("img", {
+                              staticClass: "d-block w-100",
+                              attrs: { src: image, alt: "First slide" }
+                            })
+                          ])
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _vm._m(2, true)
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.video_url[index],
+                      expression: "form.video_url[index]"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Video Link",
+                    "aria-label": "Video Link"
+                  },
+                  domProps: { value: _vm.form.video_url[index] },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form.video_url, index, $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-secondary",
+                      attrs: { type: "button", id: "button-addon2" },
+                      on: {
+                        click: function($event) {
+                          _vm.addVideo(index, _vm.form.video_url[index])
+                        }
+                      }
+                    },
+                    [_vm._v("Add")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "carousel slide",
+                    attrs: {
+                      id: "carouselExampleControls",
+                      "data-ride": "carousel"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "carousel-inner" },
+                      [
+                        _vm._m(3, true),
+                        _vm._v(" "),
+                        _vm._l(storie.videos, function(video) {
+                          return _c("div", { staticClass: "carousel-item" }, [
+                            _c("iframe", {
+                              attrs: {
+                                width: "100%",
+                                src: video,
+                                frameborder: "0",
+                                allow:
+                                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+                                allowfullscreen: ""
+                              }
+                            })
+                          ])
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _vm._m(4, true),
+                    _vm._v(" "),
+                    _vm._m(5, true)
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    _vm.removeStorieForm(index)
+                  }
+                }
+              },
+              [_vm._v("-")]
+            )
+          ])
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success",
+            attrs: { type: "button" },
+            on: { click: _vm.saveProject }
+          },
+          [_vm._v("Add/Edit")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-danger", attrs: { type: "button" } },
+          [_vm._v("Delete")]
+        )
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "carousel-item active" }, [
+      _c("img", {
+        staticClass: "d-block w-100",
+        attrs: {
+          src:
+            "https://www.mpaa.org/wp-content/uploads/2018/03/466036929-1.jpg",
+          alt: "First slide"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "prev"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "next"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "carousel-item active" }, [
+      _c("iframe", {
+        attrs: {
+          width: "100%",
+          src: "https://www.youtube.com/embed/DJ6PD_jBtU0",
+          frameborder: "0",
+          allow:
+            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+          allowfullscreen: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "prev"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "next"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ca7b3b3c", module.exports)
+  }
+}
+
+/***/ }),
+/* 54 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

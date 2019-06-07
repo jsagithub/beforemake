@@ -35,7 +35,9 @@ class StoriesController extends Controller
         $storie->id_project = $request->input('id_project');       
         $storie->description = $request->input('description');
         $storie->nlikes = $request->input('nlikes');
-       
+        //Need to be changed to Auth
+        $storie->id_user = 1;
+        
         if ($storie->save()) {
            return new StoriesResource($storie);
         }
