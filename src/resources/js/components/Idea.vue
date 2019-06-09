@@ -78,15 +78,19 @@
                 </div>
                 <button type="button" class="btn btn-danger"  @click="removeStorieForm(index)">-</button>
             </div>
-            <button type="button" class="btn btn-success" @click="saveProject">Add/Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button v-if="is_new_project" type="button" class="btn btn-success" @click="saveProject">Add</button>
+            <button v-if="!is_new_project" type="button" class="btn btn-success" @click="editProject">Edit</button>            
         </form>
     </div>
 </template>
 <script>
 export default {
+    props:{
+        storie_to_edit: {type: Array}
+    },
     data (){
         return {
+            is_new_project: true,
             project_title: '',
             project_description: '',
             youtube_url: '',
@@ -99,6 +103,14 @@ export default {
                 video_url: []
             }
             
+        }
+    },
+    created(){
+        if(this.storie_to_edit.length>0){
+            this.is_new_project = false;
+            this.stories=this.storie_to_edit;
+            this.getProject(this.storie_to_edit[0].id_project);
+            this.getSocialMedia(this.storie_to_edit[0].id_project);
         }
     },
     methods:{
@@ -170,7 +182,6 @@ export default {
                     id_stories: id_storie,
                     url: video
                 }
-                console.log(data);
                 axios.post('/api/videos', data)
                 .then(response => {     
 
@@ -237,6 +248,40 @@ export default {
             }).catch(error => {
                 console.log(error.response);               
             });
+        },
+        getProject(id_project){
+            axios.get('/api/projects/'+id_project)
+            .then(response => { 
+                this.project_title = response.data.data.title;
+                this.project_description = response.data.data.description;
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        getSocialMedia(id_project){
+            axios.get('/api/social_by_project/'+id_project)
+            .then(response => {
+                let social = response.data;
+                social.forEach(social => {
+                    if(social.name==="Youtube"){
+                        this.youtube_url = social.url;
+                    }
+                    if(social.name==="Instagram"){
+                        this.instagram_url = social.url;
+                    }
+                    if(social.name==="Twitter"){
+                        this.twitter_url = social.url;
+                    }
+                    if(social.name==="Facebook"){
+                        this.facebook_url = social.url;
+                    }
+                });
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        editProject(){
+            console.log(this.storie_to_edit[0].id_project);
         }
     }
 }

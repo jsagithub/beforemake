@@ -6,8 +6,7 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>About this page</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
-            <a class="btn btn-primary" href="/stories" role="button">Try It</a>
+            <ranking></ranking>
           </div>
         </div>
       </div>

@@ -1,167 +1,138 @@
 <template>
-<div>
-    <div class="container container-margin--top border">
-         <h4>Storie Title</h4>
-        <div class="container border">
-            <div class="row">                       
+<div class="container" style="margin-top: 130px;">
+        <h5>{{project_name}}</h5>  
+        <div v-for="(storie, index) in stories">         
+            <div class="row">                
                 <div class="col">
-                    <img src="https://i0.wp.com/jerimumgeek.oportaln10.com.br/wp-content/uploads/2018/07/mang%C3%A1-One-Punch-Man.jpg" class="rounded img-thumbnail">
+                    {{storie.description}}
                 </div>
-                <div class="col-6 text-justify">
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. 
-                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,
-                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não 
-                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se 
-                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de 
-                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de 
-                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
-                </div>
-                <div class="col profile--gray-content profile--scroll-content">
-                    <h4>Comments:</h4>
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            Sara Miles 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            John Travols 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            Sara Miles 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Comment</button>
+                <div class="col">
+                    <div class="input-group mb-3">                       
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="https://www.mpaa.org/wp-content/uploads/2018/03/466036929-1.jpg" alt="First slide">
+                                </div>  
+                                <div class="carousel-item" v-for="image in storie.images">
+                                    <img class="d-block w-100" :src="image.url" alt="First slide">
+                                </div>                               
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>  
-            <div class="row">
-                <div class="float-left">
-                    <button class="btn btn-primary"><i class="far fa-thumbs-up"></i></button>
-                    <button class="btn btn-primary"><i class="fas fa-share-alt"></i>Share</button>      
-                </div>
+                <div class="col">
+                    <div class="input-group mb-3">                       
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <iframe width="100%" src="https://www.youtube.com/embed/DJ6PD_jBtU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="carousel-item"  v-for="video in storie.videos">
+                                    <iframe width="100%" :src="video.url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>                                
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>                    
             </div>
-        </div>
-        <hr>
-        <div class="container border">
-            <div class="row">                       
+            <div class="row profile--gray-content profile--scroll-content">
                 <div class="col">
-                    <img src="https://i.pinimg.com/originals/c5/5a/3d/c55a3d18e62cb0397606d46673fa7172.jpg" class="rounded img-thumbnail">
-                </div>
-                <div class="col-6 text-justify">
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. 
-                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,
-                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não 
-                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se 
-                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de 
-                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de 
-                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
-                </div>
-                <div class="col profile--gray-content profile--scroll-content">
-                    <h4>Comments:</h4>
-                    <div class="profile--info">
+                    <div v-for="comment in storie.comments" class="profile--info">
                         <h4 class="card-title">
-                            <img src="http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            Sara Miles 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
+                            <img :src="comment.user.img" class="img-fluid rounded" style="width:50px;"> 
+                            {{comment.user.name}}
+                            <a style="font-size:15px;">
+                                {{comment.comment}}
+                            </a>
                     </h4>
-                    </div> 
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            John Travols 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            Sara Miles 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
+                    </div>                    
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
+                        <input v-model="storie.new_comment" type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Comment</button>
+                            <button @click="addComment(storie.id,storie.new_comment)" class="btn btn-outline-secondary" type="button">Comment</button>
                         </div>
                     </div>
                 </div>
-            </div>  
-                <div class="row">
-                <div class="float-left">
-                    <button class="btn btn-primary"><i class="far fa-thumbs-up"></i></button>
-                    <button class="btn btn-primary"><i class="fas fa-share-alt"></i>Share</button>      
-                </div>
-            </div>      
-        </div>
-        <hr>
-        <div class="container border">
-            <div class="row">                       
-                <div class="col">
-                    <img src="https://i1.wp.com/otakubfx.com.br/wp-content/uploads/2018/09/curso-de-desenho-e-manga.jpg" class="rounded img-thumbnail">
-                </div>
-                <div class="col-6 text-justify">
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. 
-                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,
-                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não 
-                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se 
-                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de 
-                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de 
-                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
-                </div>
-                <div class="col profile--gray-content profile--scroll-content">
-                    <h4>Comments:</h4>
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            Sara Miles 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            John Travols 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
-                    <div class="profile--info">
-                        <h4 class="card-title">
-                            <img src="http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg" class="img-fluid rounded" alt="Responsive image rounded" style="width:50px;"> 
-                            Sara Miles 
-                            <a style="font-size:15px;">Laudantium veniam exercitationem expedita laborum at voluptate.</a>
-                    </h4>
-                    </div> 
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Comment</button>
-                        </div>
-                    </div>
-                </div>
-            </div>  
-            <div class="row">
-                <div class="float-left">
-                    <button class="btn btn-primary"><i class="far fa-thumbs-up"></i></button>
-                    <button class="btn btn-primary"><i class="fas fa-share-alt"></i>Share</button>      
-                </div>
-            </div>      
-        </div>
-        <hr>
-    </div>
-            
-</div>
+            </div>     
+        </div>      
+        <button @click="editProject" type="button" class="btn btn-success">Edit</button>
+        <button type="button" @click="deleteProject" class="btn btn-danger">Delete</button>
+   </div>
 </template>
+<script>
+export default {
+    data(){
+        return{
+            project_name: '',
+            id_project: 0,
+            stories: []
+        }
+    },
+    created(){
+        if(!isNaN(window.location.search.split("?")[1])){
+            this.id_project=window.location.search.split("?")[1];
+            this.getProject();
+            this.getStories();
+        }        
+       
+    },
+    methods:{
+        getProject(){
+            axios.get('/api/projects/'+this.id_project)
+            .then(response => { 
+                this.project_name= response.data.data.title;  
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        getStories(){
+            axios.get('/api/stories_by_project/'+this.id_project)
+            .then(response => {   
+                this.stories= response.data;  
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        addComment(id_storie, comment){
+            console.log(id_storie, comment);
+            let data = {
+                id_stories: id_storie,
+                comment: comment
+            }
+            axios.post('/api/comment', data)
+            .then(response => {   
+               this.getStories();
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        deleteProject(){
+            axios.delete('/api/projects/'+this.id_project)
+            .then(response => {   
+                this.getStories();
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        editProject(){
+            this.$emit('clicked', this.stories);
+        }
+    }
+}
+</script>

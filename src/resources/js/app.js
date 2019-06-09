@@ -15,6 +15,7 @@ Vue.component('bottombar', require('./components/Bottombar.vue'));
 Vue.component('stories', require('./components/Stories.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
 Vue.component('idea', require('./components/Idea.vue'));
+Vue.component('ranking', require('./components/Ranking.vue'));
 
 const app = new Vue({
     el: '#app'

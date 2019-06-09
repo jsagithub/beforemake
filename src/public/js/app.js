@@ -14014,6 +14014,7 @@ Vue.component('bottombar', __webpack_require__(44));
 Vue.component('stories', __webpack_require__(46));
 Vue.component('profile', __webpack_require__(48));
 Vue.component('idea', __webpack_require__(51));
+Vue.component('ranking', __webpack_require__(59));
 
 var app = new Vue({
   el: '#app'
@@ -47345,42 +47346,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("hr"),
+    _vm._v(" "),
+    _c("section", { attrs: { id: "about" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-lg-8 mx-auto" },
+            [_c("h2", [_vm._v("About this page")]), _vm._v(" "), _c("ranking")],
+            1
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("hr"),
-      _vm._v(" "),
-      _c("section", { attrs: { id: "about" } }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-8 mx-auto" }, [
-              _c("h2", [_vm._v("About this page")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "lead" }, [
-                _vm._v(
-                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos."
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { href: "/stories", role: "button" }
-                },
-                [_vm._v("Try It")]
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "bg-light", attrs: { id: "services" } }, [
+    return _c(
+      "section",
+      { staticClass: "bg-light", attrs: { id: "services" } },
+      [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-lg-8 mx-auto" }, [
@@ -47394,19 +47389,23 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("section", { attrs: { id: "contact" } }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-8 mx-auto" }, [
-              _c("h2", [_vm._v("Contact us")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "lead" }, [
-                _vm._v(
-                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam."
-                )
-              ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "contact" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-8 mx-auto" }, [
+            _c("h2", [_vm._v("Contact us")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "lead" }, [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam."
+              )
             ])
           ])
         ])
@@ -47684,7 +47683,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(62)
 /* template */
 var __vue_template__ = __webpack_require__(47)
 /* template functional */
@@ -47732,420 +47731,343 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "container", staticStyle: { "margin-top": "130px" } },
+    [
+      _c("h5", [_vm._v(_vm._s(_vm.project_name))]),
+      _vm._v(" "),
+      _vm._l(_vm.stories, function(storie, index) {
+        return _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(storie.description) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "carousel slide",
+                    attrs: {
+                      id: "carouselExampleControls",
+                      "data-ride": "carousel"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "carousel-inner" },
+                      [
+                        _vm._m(0, true),
+                        _vm._v(" "),
+                        _vm._l(storie.images, function(image) {
+                          return _c("div", { staticClass: "carousel-item" }, [
+                            _c("img", {
+                              staticClass: "d-block w-100",
+                              attrs: { src: image.url, alt: "First slide" }
+                            })
+                          ])
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _vm._m(2, true)
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "carousel slide",
+                    attrs: {
+                      id: "carouselExampleControls",
+                      "data-ride": "carousel"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "carousel-inner" },
+                      [
+                        _vm._m(3, true),
+                        _vm._v(" "),
+                        _vm._l(storie.videos, function(video) {
+                          return _c("div", { staticClass: "carousel-item" }, [
+                            _c("iframe", {
+                              attrs: {
+                                width: "100%",
+                                src: video.url,
+                                frameborder: "0",
+                                allow:
+                                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+                                allowfullscreen: ""
+                              }
+                            })
+                          ])
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _vm._m(4, true),
+                    _vm._v(" "),
+                    _vm._m(5, true)
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "row profile--gray-content profile--scroll-content"
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "col" },
+                [
+                  _vm._l(storie.comments, function(comment) {
+                    return _c("div", { staticClass: "profile--info" }, [
+                      _c("h4", { staticClass: "card-title" }, [
+                        _c("img", {
+                          staticClass: "img-fluid rounded",
+                          staticStyle: { width: "50px" },
+                          attrs: { src: comment.user.img }
+                        }),
+                        _vm._v(
+                          " \n                            " +
+                            _vm._s(comment.user.name) +
+                            "\n                            "
+                        ),
+                        _c("a", { staticStyle: { "font-size": "15px" } }, [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(comment.comment) +
+                              "\n                            "
+                          )
+                        ])
+                      ])
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: storie.new_comment,
+                          expression: "storie.new_comment"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Write a message",
+                        "aria-label": "Write a message",
+                        "aria-describedby": "button-addon2"
+                      },
+                      domProps: { value: storie.new_comment },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(storie, "new_comment", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group-append" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-secondary",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.addComment(storie.id, storie.new_comment)
+                            }
+                          }
+                        },
+                        [_vm._v("Comment")]
+                      )
+                    ])
+                  ])
+                ],
+                2
+              )
+            ]
+          )
+        ])
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success",
+          attrs: { type: "button" },
+          on: { click: _vm.editProject }
+        },
+        [_vm._v("Edit")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button" },
+          on: { click: _vm.deleteProject }
+        },
+        [_vm._v("Delete")]
+      )
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "container container-margin--top border" }, [
-        _c("h4", [_vm._v("Storie Title")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container border" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("img", {
-                staticClass: "rounded img-thumbnail",
-                attrs: {
-                  src:
-                    "https://i0.wp.com/jerimumgeek.oportaln10.com.br/wp-content/uploads/2018/07/mang%C3%A1-One-Punch-Man.jpg"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 text-justify" }, [
-              _vm._v(
-                "\n                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col profile--gray-content profile--scroll-content"
-              },
-              [
-                _c("h4", [_vm._v("Comments:")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            Sara Miles \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            John Travols \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            Sara Miles \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group mb-3" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Write a message",
-                      "aria-label": "Write a message",
-                      "aria-describedby": "button-addon2"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-append" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-secondary",
-                        attrs: { type: "button", id: "button-addon2" }
-                      },
-                      [_vm._v("Comment")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "float-left" }, [
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _c("i", { staticClass: "far fa-thumbs-up" })
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _c("i", { staticClass: "fas fa-share-alt" }),
-                _vm._v("Share")
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("div", { staticClass: "container border" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("img", {
-                staticClass: "rounded img-thumbnail",
-                attrs: {
-                  src:
-                    "https://i.pinimg.com/originals/c5/5a/3d/c55a3d18e62cb0397606d46673fa7172.jpg"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 text-justify" }, [
-              _vm._v(
-                "\n                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col profile--gray-content profile--scroll-content"
-              },
-              [
-                _c("h4", [_vm._v("Comments:")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            Sara Miles \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            John Travols \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            Sara Miles \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group mb-3" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Write a message",
-                      "aria-label": "Write a message",
-                      "aria-describedby": "button-addon2"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-append" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-secondary",
-                        attrs: { type: "button", id: "button-addon2" }
-                      },
-                      [_vm._v("Comment")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "float-left" }, [
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _c("i", { staticClass: "far fa-thumbs-up" })
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _c("i", { staticClass: "fas fa-share-alt" }),
-                _vm._v("Share")
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("div", { staticClass: "container border" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("img", {
-                staticClass: "rounded img-thumbnail",
-                attrs: {
-                  src:
-                    "https://i1.wp.com/otakubfx.com.br/wp-content/uploads/2018/09/curso-de-desenho-e-manga.jpg"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 text-justify" }, [
-              _vm._v(
-                "\n                    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. \n                    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,\n                    quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não \n                    só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se \n                    essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de \n                    Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de \n                    publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col profile--gray-content profile--scroll-content"
-              },
-              [
-                _c("h4", [_vm._v("Comments:")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            Sara Miles \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA0kNPphN2Er21ILO8EUFPicIP5zEWYTlOq5ITnismHGB2z-3D7g",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            John Travols \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "profile--info" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded",
-                      staticStyle: { width: "50px" },
-                      attrs: {
-                        src:
-                          "http://institutomedios.com/wp-content/uploads/2015/01/perfil_de_ana_beatriz_barros_wallpaper-35255.jpg",
-                        alt: "Responsive image rounded"
-                      }
-                    }),
-                    _vm._v(
-                      " \n                            Sara Miles \n                            "
-                    ),
-                    _c("a", { staticStyle: { "font-size": "15px" } }, [
-                      _vm._v(
-                        "Laudantium veniam exercitationem expedita laborum at voluptate."
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group mb-3" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Write a message",
-                      "aria-label": "Write a message",
-                      "aria-describedby": "button-addon2"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-append" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-secondary",
-                        attrs: { type: "button", id: "button-addon2" }
-                      },
-                      [_vm._v("Comment")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "float-left" }, [
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _c("i", { staticClass: "far fa-thumbs-up" })
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _c("i", { staticClass: "fas fa-share-alt" }),
-                _vm._v("Share")
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr")
-      ])
+    return _c("div", { staticClass: "carousel-item active" }, [
+      _c("img", {
+        staticClass: "d-block w-100",
+        attrs: {
+          src:
+            "https://www.mpaa.org/wp-content/uploads/2018/03/466036929-1.jpg",
+          alt: "First slide"
+        }
+      })
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "prev"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "next"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "carousel-item active" }, [
+      _c("iframe", {
+        attrs: {
+          width: "100%",
+          src: "https://www.youtube.com/embed/DJ6PD_jBtU0",
+          frameborder: "0",
+          allow:
+            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+          allowfullscreen: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "prev"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          href: "#carouselExampleControls",
+          role: "button",
+          "data-slide": "next"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -48231,19 +48153,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            show_idea: false
+            show_idea: false,
+            storie_to_edit: []
         };
+    },
+    created: function created() {
+        if (!isNaN(window.location.search.split("?")[1])) {
+            this.show_idea = true;
+        }
+    },
+
+    methods: {
+        fulFielldForm: function fulFielldForm(value) {
+            this.storie_to_edit = value;
+            this.show_idea = false;
+        }
     }
 });
 
@@ -48257,48 +48185,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid container-margin--top" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-3" }, [
-        _c("h4", [_vm._v("Projects")]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "list-group" }, [
-          _c(
-            "li",
-            {
-              staticClass: "list-group-item active",
-              on: {
-                click: function($event) {
-                  _vm.show_idea = !_vm.show_idea
-                }
-              }
-            },
-            [_vm._v("Cras justo odio")]
-          ),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-group-item" }, [
-            _vm._v("Dapibus ac facilisis in")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-group-item" }, [
-            _vm._v("Morbi leo risus")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-group-item" }, [
-            _vm._v("Porta ac consectetur ac")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-group-item" }, [
-            _vm._v("Vestibulum at eros")
-          ])
-        ])
-      ]),
+      _c("div", { staticClass: "col-3" }, [_c("ranking")], 1),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "col" },
         [
-          !_vm.show_idea ? _c("idea") : _vm._e(),
+          !_vm.show_idea
+            ? _c("idea", { attrs: { storie_to_edit: _vm.storie_to_edit } })
+            : _vm._e(),
           _vm._v(" "),
-          _vm.show_idea ? _c("stories") : _vm._e()
+          _vm.show_idea
+            ? _c("stories", { on: { clicked: _vm.fulFielldForm } })
+            : _vm._e()
         ],
         1
       )
@@ -48485,8 +48384,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        storie_to_edit: { type: Array }
+    },
     data: function data() {
         return {
+            is_new_project: true,
             project_title: '',
             project_description: '',
             youtube_url: '',
@@ -48500,6 +48403,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
 
         };
+    },
+    created: function created() {
+        if (this.storie_to_edit.length > 0) {
+            this.is_new_project = false;
+            this.stories = this.storie_to_edit;
+            this.getProject(this.storie_to_edit[0].id_project);
+            this.getSocialMedia(this.storie_to_edit[0].id_project);
+        }
     },
 
     methods: {
@@ -48570,7 +48481,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     id_stories: id_storie,
                     url: video
                 };
-                console.log(data);
                 axios.post('/api/videos', data).then(function (response) {}).catch(function (error) {
                     console.log(error.response);
                 });
@@ -48632,6 +48542,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 console.log(error.response);
             });
+        },
+        getProject: function getProject(id_project) {
+            var _this3 = this;
+
+            axios.get('/api/projects/' + id_project).then(function (response) {
+                _this3.project_title = response.data.data.title;
+                _this3.project_description = response.data.data.description;
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        getSocialMedia: function getSocialMedia(id_project) {
+            var _this4 = this;
+
+            axios.get('/api/social_by_project/' + id_project).then(function (response) {
+                var social = response.data;
+                social.forEach(function (social) {
+                    if (social.name === "Youtube") {
+                        _this4.youtube_url = social.url;
+                    }
+                    if (social.name === "Instagram") {
+                        _this4.instagram_url = social.url;
+                    }
+                    if (social.name === "Twitter") {
+                        _this4.twitter_url = social.url;
+                    }
+                    if (social.name === "Facebook") {
+                        _this4.facebook_url = social.url;
+                    }
+                });
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        editProject: function editProject() {
+            console.log(this.storie_to_edit[0].id_project);
         }
     }
 });
@@ -49018,21 +48964,29 @@ var render = function() {
           ])
         }),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { type: "button" },
-            on: { click: _vm.saveProject }
-          },
-          [_vm._v("Add/Edit")]
-        ),
+        _vm.is_new_project
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-success",
+                attrs: { type: "button" },
+                on: { click: _vm.saveProject }
+              },
+              [_vm._v("Add")]
+            )
+          : _vm._e(),
         _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-danger", attrs: { type: "button" } },
-          [_vm._v("Delete")]
-        )
+        !_vm.is_new_project
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-success",
+                attrs: { type: "button" },
+                on: { click: _vm.editProject }
+              },
+              [_vm._v("Edit")]
+            )
+          : _vm._e()
       ],
       2
     )
@@ -49182,6 +49136,276 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Ranking.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-49a4ea9b", Component.options)
+  } else {
+    hotAPI.reload("data-v-49a4ea9b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            projects: [],
+            id_user: 1
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        axios.get('/api/projects_by_user/' + this.id_user).then(function (response) {
+            _this.projects = response.data;
+        }).catch(function (error) {
+            console.log(error.response);
+        });
+    }
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h4", [_vm._v("Projects")]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "list-group" },
+      _vm._l(_vm.projects, function(project) {
+        return _c("li", { staticClass: "list-group-item" }, [
+          _c("a", { attrs: { href: "/profile?" + project.id } }, [
+            _vm._v("\n            " + _vm._s(project.title) + "\n            ")
+          ])
+        ])
+      })
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-49a4ea9b", module.exports)
+  }
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            project_name: '',
+            id_project: 0,
+            stories: []
+        };
+    },
+    created: function created() {
+        if (!isNaN(window.location.search.split("?")[1])) {
+            this.id_project = window.location.search.split("?")[1];
+            this.getProject();
+            this.getStories();
+        }
+    },
+
+    methods: {
+        getProject: function getProject() {
+            var _this = this;
+
+            axios.get('/api/projects/' + this.id_project).then(function (response) {
+                _this.project_name = response.data.data.title;
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        getStories: function getStories() {
+            var _this2 = this;
+
+            axios.get('/api/stories_by_project/' + this.id_project).then(function (response) {
+                _this2.stories = response.data;
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        addComment: function addComment(id_storie, comment) {
+            var _this3 = this;
+
+            console.log(id_storie, comment);
+            var data = {
+                id_stories: id_storie,
+                comment: comment
+            };
+            axios.post('/api/comment', data).then(function (response) {
+                _this3.getStories();
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        deleteProject: function deleteProject() {
+            var _this4 = this;
+
+            axios.delete('/api/projects/' + this.id_project).then(function (response) {
+                _this4.getStories();
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        editProject: function editProject() {
+            this.$emit('clicked', this.stories);
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

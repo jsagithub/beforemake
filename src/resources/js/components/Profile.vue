@@ -2,18 +2,11 @@
     <div class="container-fluid container-margin--top">
         <div class="row">
             <div class="col-3">
-                <h4>Projects</h4>
-                <ul class="list-group">
-                    <li class="list-group-item active" @click="show_idea=!show_idea">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>               
+                <ranking></ranking>
             </div>
             <div class="col">
-                <idea v-if="!show_idea"></idea>
-                <stories v-if="show_idea"></stories>
+                <idea :storie_to_edit="storie_to_edit" v-if="!show_idea"></idea>
+                <stories v-if="show_idea" @clicked="fulFielldForm"></stories>
             </div>
         </div>
         <div class="flex-row-reverse">
@@ -30,7 +23,20 @@
 export default {
     data(){
         return{
-            show_idea:false
+            show_idea:false,
+            storie_to_edit: []
+        }
+    },
+    created(){
+        if(!isNaN(window.location.search.split("?")[1])){
+           this.show_idea = true;
+        }        
+       
+    },
+    methods:{
+        fulFielldForm(value){
+            this.storie_to_edit = value;
+            this.show_idea = false;
         }
     }
 }

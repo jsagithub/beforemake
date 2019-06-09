@@ -17,7 +17,8 @@ class CreateRankingsTable extends Migration
             $table->increments('id');
             $table->integer('id_project')->unsigned();
             $table->foreign('id_project')
-                  ->references('id')->on('projects');
+                  ->references('id')->on('projects')
+                  ->onDelete('cascade');
             $table->integer('position');
             $table->integer('id_project_status')->unsigned();
             $table->foreign('id_project_status')

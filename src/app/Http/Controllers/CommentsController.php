@@ -28,7 +28,8 @@ class CommentsController extends Controller
         
         $comment->id = $request->input('comment_id');
         $comment->id_stories = $request->input('id_stories');
-        $comment->id_user = $request->input('id_user');
+        // Need to be changed
+        $comment->id_user = 1;
         $comment->comment = $request->input('comment');
        
         if ($comment->save()) {

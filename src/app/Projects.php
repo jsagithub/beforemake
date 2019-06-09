@@ -14,7 +14,7 @@ class Projects extends Model
         foreach($projects as $project) {
             $data[] = [
                 'id' => $project->id,
-                'tile' =>$project->title,
+                'title' =>$project->title,
                 'description' => $project->description,
                 'nlikes' => $project->nlikes,
                 'created_at' => $project->created_at->format('d/m/Y'),

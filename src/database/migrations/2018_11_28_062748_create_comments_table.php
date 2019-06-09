@@ -20,7 +20,8 @@ class CreateCommentsTable extends Migration
                   ->references('id')->on('users');
             $table->integer('id_stories')->unsigned();
             $table->foreign('id_stories')
-                ->references('id')->on('stories');
+                ->references('id')->on('stories')
+                ->onDelete('cascade');
             $table->string('comment');
             $table->timestamps();
         });

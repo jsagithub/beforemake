@@ -56,7 +56,7 @@ class StoriesController extends Controller
     }
 
     public function show_by_project($id_project){
-        $stories = Stories::StoriesByUser($id_project);
+        $stories = Stories::StoriesByProject($id_project);
         return $stories;
     }
     /**

@@ -17,7 +17,8 @@ class CreateImageTable extends Migration
             $table->increments('id');
             $table->integer('id_stories')->unsigned();
             $table->foreign('id_stories')
-                ->references('id')->on('stories');
+                ->references('id')->on('stories')
+                ->onDelete('cascade');
             $table->string('url');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')

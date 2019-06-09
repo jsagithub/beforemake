@@ -17,7 +17,8 @@ class CreateSocialMediaTable extends Migration
             $table->increments('id');
             $table->integer('id_project')->unsigned();
             $table->foreign('id_project')
-                ->references('id')->on('projects');
+                ->references('id')->on('projects')
+                ->onDelete('cascade');
             $table->string('name');
             $table->string('icon');
             $table->string('url');
