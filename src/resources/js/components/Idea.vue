@@ -122,7 +122,10 @@ export default {
             this.stories.push({images:[], videos:[]});
         },
         removeStorieForm(position){
-            this.stories.splice(position, 1);
+            if(!this.is_new_project){
+                this.deleteStorie(this.stories[position].id)
+            }
+            this.stories.splice(position, 1);            
         },
         addImage(index,url_img){
             this.stories[index].images.push(url_img);
@@ -168,31 +171,34 @@ export default {
         },
         saveImages(id_storie, images){
             images.forEach(image => {
-                let data = {
-                    id_stories: id_storie,
-                    url: image
+                if(!image.id){
+                    let data = {
+                        id_stories: id_storie,
+                        url: image
+                    }
+                    axios.post('/api/images', data)
+                    .then(response => {                   
+                    
+                    }).catch(error => {
+                        console.log(error.response);               
+                    });
                 }
-                axios.post('/api/images', data)
-                .then(response => {                   
-                  
-                }).catch(error => {
-                    console.log(error.response);               
-                });
             });
         },
         saveVideos(id_storie, videos){
-            console.log(videos)
             videos.forEach(video => {
-                let data = {
-                    id_stories: id_storie,
-                    url: video
-                }
-                axios.post('/api/videos', data)
-                .then(response => {     
+                if(!video.id){
+                    let data = {
+                        id_stories: id_storie,
+                        url: video
+                    }
+                    axios.post('/api/videos', data)
+                    .then(response => {     
 
-                }).catch(error => {
-                    console.log(error.response);               
-                });
+                    }).catch(error => {
+                        console.log(error.response);               
+                    });
+                }
             });
         },
         saveSocialMedia(id_project){
@@ -357,19 +363,27 @@ export default {
                     }
                     axios.put('/api/stories', data_storie)
                     .then(response => { 
-                        if(storie.images !== "undefined"){
+                        if(storie.images.length>0){
                             this.saveImages(storie.id,storie.images);
                         }
-                        if(storie.videos !== "undefined"){
-                            console.log(storie.videos);
-                            this.saveVideos(storie.data.id,storie.videos);
+                        if(storie.videos.length>0){
+                            this.saveVideos(storie.id,storie.videos);
                         } 
                     }).catch(error => {
                         console.log(error.response);               
                     });
                 }                
             });
+            //save new stories if they exists
             this.saveStories(this.storie_to_edit[0].id_project);
+        },
+        deleteStorie(id_storie){
+            axios.delete('/api/stories/'+id_storie)
+            .then(response => { 
+                console.log(response);
+            }).catch(error => {
+                console.log(error.response);               
+            });
         }
 
     }

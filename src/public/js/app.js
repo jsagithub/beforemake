@@ -48570,6 +48570,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.stories.push({ images: [], videos: [] });
         },
         removeStorieForm: function removeStorieForm(position) {
+            if (!this.is_new_project) {
+                this.deleteStorie(this.stories[position].id);
+            }
             this.stories.splice(position, 1);
         },
         addImage: function addImage(index, url_img) {
@@ -48618,25 +48621,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         saveImages: function saveImages(id_storie, images) {
             images.forEach(function (image) {
-                var data = {
-                    id_stories: id_storie,
-                    url: image
-                };
-                axios.post('/api/images', data).then(function (response) {}).catch(function (error) {
-                    console.log(error.response);
-                });
+                if (!image.id) {
+                    var data = {
+                        id_stories: id_storie,
+                        url: image
+                    };
+                    axios.post('/api/images', data).then(function (response) {}).catch(function (error) {
+                        console.log(error.response);
+                    });
+                }
             });
         },
         saveVideos: function saveVideos(id_storie, videos) {
-            console.log(videos);
             videos.forEach(function (video) {
-                var data = {
-                    id_stories: id_storie,
-                    url: video
-                };
-                axios.post('/api/videos', data).then(function (response) {}).catch(function (error) {
-                    console.log(error.response);
-                });
+                if (!video.id) {
+                    var data = {
+                        id_stories: id_storie,
+                        url: video
+                    };
+                    axios.post('/api/videos', data).then(function (response) {}).catch(function (error) {
+                        console.log(error.response);
+                    });
+                }
             });
         },
         saveSocialMedia: function saveSocialMedia(id_project) {
@@ -48795,19 +48801,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         description: storie.description
                     };
                     axios.put('/api/stories', data_storie).then(function (response) {
-                        if (storie.images !== "undefined") {
+                        if (storie.images.length > 0) {
                             _this5.saveImages(storie.id, storie.images);
                         }
-                        if (storie.videos !== "undefined") {
-                            console.log(storie.videos);
-                            _this5.saveVideos(storie.data.id, storie.videos);
+                        if (storie.videos.length > 0) {
+                            _this5.saveVideos(storie.id, storie.videos);
                         }
                     }).catch(function (error) {
                         console.log(error.response);
                     });
                 }
             });
+            //save new stories if they exists
             this.saveStories(this.storie_to_edit[0].id_project);
+        },
+        deleteStorie: function deleteStorie(id_storie) {
+            axios.delete('/api/stories/' + id_storie).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error.response);
+            });
         }
     }
 });
