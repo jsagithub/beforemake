@@ -25,7 +25,6 @@ class Stories extends Model
                 'id' => $storie->id,
                 'id_project' =>$storie->id_project,
                 'description' => $storie->description,
-                'nlikes' => $storie->nlikes,
                 'created_at' => $storie->created_at->format('d/m/Y'),
                 'images' => Images::where('id_stories', $storie->id)->get(),
                 'videos' => Videos::where('id_stories', $storie->id)->get(),

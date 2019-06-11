@@ -20,7 +20,6 @@ class CreateStoriesTable extends Migration
                   ->references('id')->on('projects')
                   ->onDelete('cascade');
             $table->string('description');
-            $table->integer('nlikes');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')
                   ->references('id')->on('users');

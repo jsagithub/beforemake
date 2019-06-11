@@ -36,7 +36,6 @@ class ProjectsController extends Controller
         $project->id_user = 1;        
         $project->title = $request->input('title');
         $project->description = $request->input('description');
-        $project->nlikes = $request->input('nlikes');
         $project->id_project_status = $request->input('id_project_status');
         if ($project->save()) {
            return new ProjectsResource($project);

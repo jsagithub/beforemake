@@ -13990,7 +13990,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(58);
 
 
 /***/ }),
@@ -14012,9 +14012,9 @@ Vue.component('home', __webpack_require__(40));
 Vue.component('navbar', __webpack_require__(42));
 Vue.component('bottombar', __webpack_require__(44));
 Vue.component('stories', __webpack_require__(46));
-Vue.component('profile', __webpack_require__(48));
-Vue.component('idea', __webpack_require__(51));
-Vue.component('ranking', __webpack_require__(59));
+Vue.component('profile', __webpack_require__(49));
+Vue.component('idea', __webpack_require__(52));
+Vue.component('ranking', __webpack_require__(55));
 
 var app = new Vue({
   el: '#app'
@@ -47683,9 +47683,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(62)
+var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(47)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47725,6 +47725,154 @@ module.exports = Component.exports
 
 /***/ }),
 /* 47 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            project_name: '',
+            id_project: 0,
+            stories: []
+        };
+    },
+    created: function created() {
+        if (!isNaN(window.location.search.split("?")[1])) {
+            this.id_project = window.location.search.split("?")[1];
+            this.getProject();
+            this.getStories();
+        }
+    },
+
+    methods: {
+        getProject: function getProject() {
+            var _this = this;
+
+            axios.get('/api/projects/' + this.id_project).then(function (response) {
+                _this.project_name = response.data.data.title;
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        getStories: function getStories() {
+            var _this2 = this;
+
+            axios.get('/api/stories_by_project/' + this.id_project).then(function (response) {
+                _this2.stories = response.data;
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        addComment: function addComment(id_storie, comment) {
+            var _this3 = this;
+
+            console.log(id_storie, comment);
+            var data = {
+                id_stories: id_storie,
+                comment: comment
+            };
+            axios.post('/api/comment', data).then(function (response) {
+                _this3.getStories();
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        deleteProject: function deleteProject() {
+            var _this4 = this;
+
+            axios.delete('/api/projects/' + this.id_project).then(function (response) {
+                _this4.getStories();
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        editProject: function editProject() {
+            this.$emit('clicked', this.stories);
+        }
+    }
+});
+
+/***/ }),
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48080,15 +48228,15 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48127,7 +48275,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48176,7 +48324,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48245,15 +48393,15 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(52)
+var __vue_script__ = __webpack_require__(53)
 /* template */
-var __vue_template__ = __webpack_require__(53)
+var __vue_template__ = __webpack_require__(54)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48292,7 +48440,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48393,9 +48541,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             project_title: '',
             project_description: '',
             youtube_url: '',
+            youtube_id: 0,
             instagram_url: '',
+            instagram_id: 0,
             twitter_url: '',
+            twitter_id: 0,
             facebook_url: '',
+            facebook_id: 0,
             stories: [{ images: [], videos: [] }],
             form: {
                 image_url: [],
@@ -48432,7 +48584,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var data = {
                 title: this.project_title,
                 description: this.project_description,
-                nlikes: 0,
                 id_project_status: 1
             };
             axios.post('/api/projects', data).then(function (response) {
@@ -48449,19 +48600,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             this.stories.forEach(function (storie) {
-                var data = {
-                    id_project: id_project,
-                    description: storie.description,
-                    nlikes: 0
-                };
-                axios.post('/api/stories', data).then(function (response) {
-                    if (response.status === 201) {
-                        _this2.saveImages(response.data.data.id, storie.images);
-                        _this2.saveVideos(response.data.data.id, storie.videos);
-                    }
-                }).catch(function (error) {
-                    console.log(error.response);
-                });
+                if (!storie.id) {
+                    var data = {
+                        id_project: id_project,
+                        description: storie.description
+                    };
+                    axios.post('/api/stories', data).then(function (response) {
+                        if (response.status === 201) {
+                            _this2.saveImages(response.data.data.id, storie.images);
+                            _this2.saveVideos(response.data.data.id, storie.videos);
+                        }
+                    }).catch(function (error) {
+                        console.log(error.response);
+                    });
+                }
             });
         },
         saveImages: function saveImages(id_storie, images) {
@@ -48476,6 +48628,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         saveVideos: function saveVideos(id_storie, videos) {
+            console.log(videos);
             videos.forEach(function (video) {
                 var data = {
                     id_stories: id_storie,
@@ -48525,9 +48678,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         sentDataSocialMedia: function sentDataSocialMedia(data) {
-            axios.post('/api/social', data).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
+            axios.post('/api/social', data).then(function (response) {}).catch(function (error) {
                 console.log(error.response);
             });
         },
@@ -48537,9 +48688,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 position: 0,
                 id_project_status: id_project_status
             };
-            axios.post('/api/rankings', data).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
+            axios.post('/api/rankings', data).then(function (response) {}).catch(function (error) {
                 console.log(error.response);
             });
         },
@@ -48561,15 +48710,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 social.forEach(function (social) {
                     if (social.name === "Youtube") {
                         _this4.youtube_url = social.url;
+                        _this4.youtube_id = social.id;
                     }
                     if (social.name === "Instagram") {
                         _this4.instagram_url = social.url;
+                        _this4.instagram_id = social.id;
                     }
                     if (social.name === "Twitter") {
                         _this4.twitter_url = social.url;
+                        _this4.twitter_id = social.id;
                     }
                     if (social.name === "Facebook") {
                         _this4.facebook_url = social.url;
+                        _this4.facebook_id = social.id;
                     }
                 });
             }).catch(function (error) {
@@ -48577,13 +48730,90 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         editProject: function editProject() {
-            console.log(this.storie_to_edit[0].id_project);
+            this.editProjectData();
+            this.editSocialMedia();
+            this.editStorie();
+        },
+        editProjectData: function editProjectData() {
+            var data = {
+                project_id: this.storie_to_edit[0].id_project,
+                title: this.project_title,
+                description: this.project_description,
+                id_project_status: 1
+            };
+            axios.put('/api/projects', data).then(function (response) {}).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        editSocialMedia: function editSocialMedia() {
+            var data_y = {
+                social_id: this.youtube_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Youtube",
+                icon: "youtube_icon",
+                url: this.youtube_url
+            };
+            this.editSocialMediaData(data_y);
+            var data_i = {
+                social_id: this.instagram_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Instagram",
+                icon: "instagram_icon",
+                url: this.instagram_url
+            };
+            this.editSocialMediaData(data_i);
+            var data_t = {
+                social_id: this.twitter_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Twitter",
+                icon: "twitter_icon",
+                url: this.twitter_url
+            };
+            this.editSocialMediaData(data_t);
+            var data_f = {
+                social_id: this.facebook_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Facebook",
+                icon: "facebook_icon",
+                url: this.facebook_url
+            };
+            this.editSocialMediaData(data_f);
+        },
+        editSocialMediaData: function editSocialMediaData(data) {
+            axios.put('/api/social', data).then(function (response) {}).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        editStorie: function editStorie() {
+            var _this5 = this;
+
+            this.storie_to_edit.forEach(function (storie) {
+                if (storie.id) {
+                    var data_storie = {
+                        storie_id: storie.id,
+                        id_project: storie.id_project,
+                        description: storie.description
+                    };
+                    axios.put('/api/stories', data_storie).then(function (response) {
+                        if (storie.images !== "undefined") {
+                            _this5.saveImages(storie.id, storie.images);
+                        }
+                        if (storie.videos !== "undefined") {
+                            console.log(storie.videos);
+                            _this5.saveVideos(storie.data.id, storie.videos);
+                        }
+                    }).catch(function (error) {
+                        console.log(error.response);
+                    });
+                }
+            });
+            this.saveStories(this.storie_to_edit[0].id_project);
         }
     }
 });
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49132,25 +49362,15 @@ if (false) {
 }
 
 /***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = __webpack_require__(56)
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(57)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49189,7 +49409,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 60 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49226,7 +49446,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 61 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49260,152 +49480,10 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 58 */
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            project_name: '',
-            id_project: 0,
-            stories: []
-        };
-    },
-    created: function created() {
-        if (!isNaN(window.location.search.split("?")[1])) {
-            this.id_project = window.location.search.split("?")[1];
-            this.getProject();
-            this.getStories();
-        }
-    },
-
-    methods: {
-        getProject: function getProject() {
-            var _this = this;
-
-            axios.get('/api/projects/' + this.id_project).then(function (response) {
-                _this.project_name = response.data.data.title;
-            }).catch(function (error) {
-                console.log(error.response);
-            });
-        },
-        getStories: function getStories() {
-            var _this2 = this;
-
-            axios.get('/api/stories_by_project/' + this.id_project).then(function (response) {
-                _this2.stories = response.data;
-            }).catch(function (error) {
-                console.log(error.response);
-            });
-        },
-        addComment: function addComment(id_storie, comment) {
-            var _this3 = this;
-
-            console.log(id_storie, comment);
-            var data = {
-                id_stories: id_storie,
-                comment: comment
-            };
-            axios.post('/api/comment', data).then(function (response) {
-                _this3.getStories();
-            }).catch(function (error) {
-                console.log(error.response);
-            });
-        },
-        deleteProject: function deleteProject() {
-            var _this4 = this;
-
-            axios.delete('/api/projects/' + this.id_project).then(function (response) {
-                _this4.getStories();
-            }).catch(function (error) {
-                console.log(error.response);
-            });
-        },
-        editProject: function editProject() {
-            this.$emit('clicked', this.stories);
-        }
-    }
-});
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

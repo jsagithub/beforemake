@@ -94,9 +94,13 @@ export default {
             project_title: '',
             project_description: '',
             youtube_url: '',
+            youtube_id: 0,
             instagram_url: '',
+            instagram_id: 0,
             twitter_url: '',
+            twitter_id: 0,
             facebook_url: '',
+            facebook_id: 0,
             stories: [{images:[], videos:[]}],
             form: {
                 image_url: [],
@@ -130,7 +134,6 @@ export default {
             let data = {
                 title: this.project_title,
                 description:  this.project_description,
-                nlikes: 0,
                 id_project_status: 1
             }
             axios.post('/api/projects', data)
@@ -146,20 +149,21 @@ export default {
         },
         saveStories(id_project){
             this.stories.forEach(storie => {
-                let data = {
-                    id_project: id_project,
-                    description: storie.description,
-                    nlikes:0
-                };
-                axios.post('/api/stories', data)
-                .then(response => {                   
-                if(response.status===201){ 
-                    this.saveImages(response.data.data.id,storie.images);
-                    this.saveVideos(response.data.data.id,storie.videos);                   
-                }     
-                }).catch(error => {
-                    console.log(error.response);               
-                });
+                if(!storie.id){
+                    let data = {
+                        id_project: id_project,
+                        description: storie.description
+                    };
+                    axios.post('/api/stories', data)
+                    .then(response => {                   
+                    if(response.status===201){ 
+                        this.saveImages(response.data.data.id,storie.images);
+                        this.saveVideos(response.data.data.id,storie.videos);                   
+                    }     
+                    }).catch(error => {
+                        console.log(error.response);               
+                    });
+                }
             });
         },
         saveImages(id_storie, images){
@@ -177,6 +181,7 @@ export default {
             });
         },
         saveVideos(id_storie, videos){
+            console.log(videos)
             videos.forEach(video => {
                 let data = {
                     id_stories: id_storie,
@@ -230,8 +235,7 @@ export default {
         },
         sentDataSocialMedia(data){
             axios.post('/api/social', data)
-            .then(response => {                   
-                console.log(response);
+            .then(response => {        
             }).catch(error => {
                 console.log(error.response);               
             });
@@ -243,8 +247,7 @@ export default {
                 id_project_status:id_project_status
             }
             axios.post('/api/rankings', data)
-            .then(response => {                   
-                console.log(response);
+            .then(response => {        
             }).catch(error => {
                 console.log(error.response);               
             });
@@ -265,15 +268,19 @@ export default {
                 social.forEach(social => {
                     if(social.name==="Youtube"){
                         this.youtube_url = social.url;
+                        this.youtube_id = social.id;
                     }
                     if(social.name==="Instagram"){
                         this.instagram_url = social.url;
+                        this.instagram_id = social.id;
                     }
                     if(social.name==="Twitter"){
                         this.twitter_url = social.url;
+                        this.twitter_id = social.id;
                     }
                     if(social.name==="Facebook"){
                         this.facebook_url = social.url;
+                        this.facebook_id = social.id;
                     }
                 });
             }).catch(error => {
@@ -281,8 +288,90 @@ export default {
             });
         },
         editProject(){
-            console.log(this.storie_to_edit[0].id_project);
+            this.editProjectData();
+            this.editSocialMedia();
+            this.editStorie();
+        },
+        editProjectData(){
+            let data={
+                project_id:this.storie_to_edit[0].id_project,        
+                title: this.project_title,
+                description: this.project_description,
+                id_project_status: 1
+            }
+            axios.put('/api/projects', data)
+            .then(response => {      
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        editSocialMedia(){
+            let data_y = {
+                social_id: this.youtube_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Youtube",
+                icon: "youtube_icon",
+                url: this.youtube_url,
+            }
+            this.editSocialMediaData(data_y);
+            let data_i = {
+                social_id: this.instagram_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Instagram",
+                icon: "instagram_icon",
+                url: this.instagram_url,
+            }
+            this.editSocialMediaData(data_i);
+            let data_t = {
+                social_id: this.twitter_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Twitter",
+                icon: "twitter_icon",
+                url: this.twitter_url,
+            }
+            this.editSocialMediaData(data_t);
+            let data_f = {
+                social_id: this.facebook_id,
+                id_project: this.storie_to_edit[0].id_project,
+                name: "Facebook",
+                icon: "facebook_icon",
+                url: this.facebook_url,
+            }
+            this.editSocialMediaData(data_f);
+            
+        }, 
+        editSocialMediaData(data){
+            axios.put('/api/social', data)
+            .then(response => {       
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        editStorie(){
+            this.storie_to_edit.forEach(storie => {
+                if(storie.id){
+                    let data_storie={
+                        storie_id: storie.id,
+                        id_project: storie.id_project,
+                        description: storie.description,
+                    }
+                    axios.put('/api/stories', data_storie)
+                    .then(response => { 
+                        if(storie.images !== "undefined"){
+                            this.saveImages(storie.id,storie.images);
+                        }
+                        if(storie.videos !== "undefined"){
+                            console.log(storie.videos);
+                            this.saveVideos(storie.data.id,storie.videos);
+                        } 
+                    }).catch(error => {
+                        console.log(error.response);               
+                    });
+                }                
+            });
+            this.saveStories(this.storie_to_edit[0].id_project);
         }
+
     }
 }
 </script>
