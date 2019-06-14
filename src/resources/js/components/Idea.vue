@@ -20,9 +20,9 @@
             <hr>
             <h6>Stories</h6>
             <button type="button" @click="addStorieForm" class="btn btn-success">+</button>
-            <div class="form-row" v-for="(storie, index) in stories">                
+            <div style="margin-top: 5px;" class="form-row" v-for="(storie, index) in stories">                
                 <div class="col">
-                    <textarea v-model="storie.description" class="form-control" id="storie_description" placeholder="Storie Description" rows="3"></textarea>
+                    <textarea style="height: 220px;" v-model="storie.description" class="form-control" id="storie_description" placeholder="Storie Description" rows="3"></textarea>
                 </div>
                 <div class="col">
                     <div class="input-group mb-3">
@@ -30,20 +30,17 @@
                         <div class="input-group-append">
                             <button @click="addImage(index,form.image_url[index])" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
                         </div>
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="https://www.mpaa.org/wp-content/uploads/2018/03/466036929-1.jpg" alt="First slide">
-                                </div>  
-                                <div class="carousel-item" v-for="image in storie.images">
-                                    <img class="d-block w-100" :src="image" alt="First slide">
+                        <div  style="margin-top: 10px;" :id="'carouselExampleControls'+index" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">                                
+                                <div class='carousel-item' :class="{'active': i_img==0}" v-for="(image, i_img) in storie.images">
+                                    <img style="height: 173px;" class="d-block w-100" :src="image.url">
                                 </div>                               
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <a class="carousel-control-prev" :href="'#carouselExampleControls'+index" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <a class="carousel-control-next" :href="'#carouselExampleControls'+index" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -56,20 +53,17 @@
                         <div class="input-group-append">
                             <button @click="addVideo(index,form.video_url[index])" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
                         </div>
-                       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <iframe width="100%" src="https://www.youtube.com/embed/DJ6PD_jBtU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="carousel-item"  v-for="video in storie.videos">
-                                    <iframe width="100%" :src="video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                       <div style="margin-top: 10px;" :id="'carouselVideoControls'+index" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">                               
+                                <div class="carousel-item" :class="{'active': i_vid==0}" v-for="(video, i_vid) in storie.videos">
+                                    <iframe style="height: 173px;" width="100%" :src="video.url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>                                
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <a class="carousel-control-prev" :href="'#carouselVideoControls'+index" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <a class="carousel-control-next" :href="'#carouselVideoControls'+index" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -128,10 +122,12 @@ export default {
             this.stories.splice(position, 1);            
         },
         addImage(index,url_img){
-            this.stories[index].images.push(url_img);
+            this.stories[index].images.push({'url':url_img});
         },
         addVideo(index,url_video){
-            this.stories[index].videos.push(url_video);
+            let code_split = url_video.split('v=');
+            url_video = "https://www.youtube.com/embed/"+code_split[1];
+            this.stories[index].videos.push({'url':url_video});
         },
         saveProject(){
             let data = {
@@ -174,7 +170,7 @@ export default {
                 if(!image.id){
                     let data = {
                         id_stories: id_storie,
-                        url: image
+                        url: image.url
                     }
                     axios.post('/api/images', data)
                     .then(response => {                   
@@ -190,7 +186,7 @@ export default {
                 if(!video.id){
                     let data = {
                         id_stories: id_storie,
-                        url: video
+                        url: video.url
                     }
                     axios.post('/api/videos', data)
                     .then(response => {     
@@ -312,39 +308,58 @@ export default {
             });
         },
         editSocialMedia(){
-            let data_y = {
-                social_id: this.youtube_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Youtube",
-                icon: "youtube_icon",
-                url: this.youtube_url,
+            if(this.youtube_id>0){
+                let data_y = {
+                    social_id: this.youtube_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Youtube",
+                    icon: "youtube_icon",
+                    url: this.youtube_url,
+                }            
+                this.editSocialMediaData(data_y);
             }
-            this.editSocialMediaData(data_y);
-            let data_i = {
-                social_id: this.instagram_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Instagram",
-                icon: "instagram_icon",
-                url: this.instagram_url,
+            else if(this.youtube_url.length>0){
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
             }
-            this.editSocialMediaData(data_i);
-            let data_t = {
-                social_id: this.twitter_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Twitter",
-                icon: "twitter_icon",
-                url: this.twitter_url,
+            if(this.instagram_id>0){
+                let data_i = {
+                    social_id: this.instagram_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Instagram",
+                    icon: "instagram_icon",
+                    url: this.instagram_url,
+                }
+                this.editSocialMediaData(data_i);
             }
-            this.editSocialMediaData(data_t);
-            let data_f = {
-                social_id: this.facebook_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Facebook",
-                icon: "facebook_icon",
-                url: this.facebook_url,
+            else if(this.instagram_url.length>0){
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
             }
-            this.editSocialMediaData(data_f);
-            
+            if(this.twitter_id>0){
+                let data_t = {
+                    social_id: this.twitter_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Twitter",
+                    icon: "twitter_icon",
+                    url: this.twitter_url,
+                }
+                this.editSocialMediaData(data_t);
+            }
+            else if(this.twitter_url.length>0){
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
+            }
+            if(this.facebook_id>0){
+                let data_f = {
+                    social_id: this.facebook_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Facebook",
+                    icon: "facebook_icon",
+                    url: this.facebook_url,
+                }
+                this.editSocialMediaData(data_f);
+            }
+            else if(this.facebook_url.length>0){
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
+            }           
         }, 
         editSocialMediaData(data){
             axios.put('/api/social', data)

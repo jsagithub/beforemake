@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid container-margin--top">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 bg-white content_margins">
                 <ranking></ranking>
             </div>
-            <div class="col">
+            <div class="col bg-white content_margins">
                 <idea :storie_to_edit="storie_to_edit" v-if="!show_idea"></idea>
                 <stories v-if="show_idea" @clicked="fulFielldForm"></stories>
             </div>

@@ -47487,7 +47487,7 @@ var staticRenderFns = [
     return _c(
       "nav",
       {
-        staticClass: "navbar navbar-expand-lg navbar-dark bg-dark fixed-top",
+        staticClass: "navbar navbar-expand-lg navbar-dark fixed-top bg-dark_bm",
         attrs: { id: "mainNav" }
       },
       [
@@ -47800,12 +47800,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47881,7 +47875,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container", staticStyle: { "margin-top": "130px" } },
+    { staticClass: "container" },
     [
       _c("h5", [_vm._v(_vm._s(_vm.project_name))]),
       _vm._v(" "),
@@ -47903,7 +47897,7 @@ var render = function() {
                   {
                     staticClass: "carousel slide",
                     attrs: {
-                      id: "carouselExampleControls",
+                      id: "carouselExampleControls" + index,
                       "data-ride": "carousel"
                     }
                   },
@@ -47911,24 +47905,64 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "carousel-inner" },
-                      [
-                        _vm._m(0, true),
-                        _vm._v(" "),
-                        _vm._l(storie.images, function(image) {
-                          return _c("div", { staticClass: "carousel-item" }, [
+                      _vm._l(storie.images, function(image, i_img) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass: "carousel-item",
+                            class: { active: i_img == 0 }
+                          },
+                          [
                             _c("img", {
                               staticClass: "d-block w-100",
-                              attrs: { src: image.url, alt: "First slide" }
+                              attrs: { src: image.url }
                             })
-                          ])
-                        })
-                      ],
-                      2
+                          ]
+                        )
+                      })
                     ),
                     _vm._v(" "),
-                    _vm._m(1, true),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "carousel-control-prev",
+                        attrs: {
+                          href: "#carouselExampleControls" + index,
+                          role: "button",
+                          "data-slide": "prev"
+                        }
+                      },
+                      [
+                        _c("span", {
+                          staticClass: "carousel-control-prev-icon",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "sr-only" }, [
+                          _vm._v("Previous")
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
-                    _vm._m(2, true)
+                    _c(
+                      "a",
+                      {
+                        staticClass: "carousel-control-next",
+                        attrs: {
+                          href: "#carouselExampleControls" + index,
+                          role: "button",
+                          "data-slide": "next"
+                        }
+                      },
+                      [
+                        _c("span", {
+                          staticClass: "carousel-control-next-icon",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+                      ]
+                    )
                   ]
                 )
               ])
@@ -47941,7 +47975,7 @@ var render = function() {
                   {
                     staticClass: "carousel slide",
                     attrs: {
-                      id: "carouselExampleControls",
+                      id: "carouselVideoControls" + index,
                       "data-ride": "carousel"
                     }
                   },
@@ -47949,11 +47983,14 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "carousel-inner" },
-                      [
-                        _vm._m(3, true),
-                        _vm._v(" "),
-                        _vm._l(storie.videos, function(video) {
-                          return _c("div", { staticClass: "carousel-item" }, [
+                      _vm._l(storie.videos, function(video, i_vid) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass: "carousel-item",
+                            class: { active: i_vid == 0 }
+                          },
+                          [
                             _c("iframe", {
                               attrs: {
                                 width: "100%",
@@ -47964,15 +48001,52 @@ var render = function() {
                                 allowfullscreen: ""
                               }
                             })
-                          ])
-                        })
-                      ],
-                      2
+                          ]
+                        )
+                      })
                     ),
                     _vm._v(" "),
-                    _vm._m(4, true),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "carousel-control-prev",
+                        attrs: {
+                          href: "#carouselVideoControls" + index,
+                          role: "button",
+                          "data-slide": "prev"
+                        }
+                      },
+                      [
+                        _c("span", {
+                          staticClass: "carousel-control-prev-icon",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "sr-only" }, [
+                          _vm._v("Previous")
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
-                    _vm._m(5, true)
+                    _c(
+                      "a",
+                      {
+                        staticClass: "carousel-control-next",
+                        attrs: {
+                          href: "#carouselVideoControls" + index,
+                          role: "button",
+                          "data-slide": "next"
+                        }
+                      },
+                      [
+                        _c("span", {
+                          staticClass: "carousel-control-next-icon",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+                      ]
+                    )
                   ]
                 )
               ])
@@ -48088,136 +48162,7 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carousel-item active" }, [
-      _c("img", {
-        staticClass: "d-block w-100",
-        attrs: {
-          src:
-            "https://www.mpaa.org/wp-content/uploads/2018/03/466036929-1.jpg",
-          alt: "First slide"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-prev",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "prev"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-prev-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-next",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "next"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-next-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carousel-item active" }, [
-      _c("iframe", {
-        attrs: {
-          width: "100%",
-          src: "https://www.youtube.com/embed/DJ6PD_jBtU0",
-          frameborder: "0",
-          allow:
-            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
-          allowfullscreen: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-prev",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "prev"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-prev-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-next",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "next"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-next-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -48333,11 +48278,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid container-margin--top" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-3" }, [_c("ranking")], 1),
+      _c(
+        "div",
+        { staticClass: "col-3 bg-white content_margins" },
+        [_c("ranking")],
+        1
+      ),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col" },
+        { staticClass: "col bg-white content_margins" },
         [
           !_vm.show_idea
             ? _c("idea", { attrs: { storie_to_edit: _vm.storie_to_edit } })
@@ -48524,12 +48474,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -48576,10 +48520,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.stories.splice(position, 1);
         },
         addImage: function addImage(index, url_img) {
-            this.stories[index].images.push(url_img);
+            this.stories[index].images.push({ 'url': url_img });
         },
         addVideo: function addVideo(index, url_video) {
-            this.stories[index].videos.push(url_video);
+            var code_split = url_video.split('v=');
+            url_video = "https://www.youtube.com/embed/" + code_split[1];
+            this.stories[index].videos.push({ 'url': url_video });
         },
         saveProject: function saveProject() {
             var _this = this;
@@ -48624,7 +48570,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (!image.id) {
                     var data = {
                         id_stories: id_storie,
-                        url: image
+                        url: image.url
                     };
                     axios.post('/api/images', data).then(function (response) {}).catch(function (error) {
                         console.log(error.response);
@@ -48637,7 +48583,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (!video.id) {
                     var data = {
                         id_stories: id_storie,
-                        url: video
+                        url: video.url
                     };
                     axios.post('/api/videos', data).then(function (response) {}).catch(function (error) {
                         console.log(error.response);
@@ -48752,38 +48698,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         editSocialMedia: function editSocialMedia() {
-            var data_y = {
-                social_id: this.youtube_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Youtube",
-                icon: "youtube_icon",
-                url: this.youtube_url
-            };
-            this.editSocialMediaData(data_y);
-            var data_i = {
-                social_id: this.instagram_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Instagram",
-                icon: "instagram_icon",
-                url: this.instagram_url
-            };
-            this.editSocialMediaData(data_i);
-            var data_t = {
-                social_id: this.twitter_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Twitter",
-                icon: "twitter_icon",
-                url: this.twitter_url
-            };
-            this.editSocialMediaData(data_t);
-            var data_f = {
-                social_id: this.facebook_id,
-                id_project: this.storie_to_edit[0].id_project,
-                name: "Facebook",
-                icon: "facebook_icon",
-                url: this.facebook_url
-            };
-            this.editSocialMediaData(data_f);
+            if (this.youtube_id > 0) {
+                var data_y = {
+                    social_id: this.youtube_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Youtube",
+                    icon: "youtube_icon",
+                    url: this.youtube_url
+                };
+                this.editSocialMediaData(data_y);
+            } else if (this.youtube_url.length > 0) {
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
+            }
+            if (this.instagram_id > 0) {
+                var data_i = {
+                    social_id: this.instagram_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Instagram",
+                    icon: "instagram_icon",
+                    url: this.instagram_url
+                };
+                this.editSocialMediaData(data_i);
+            } else if (this.instagram_url.length > 0) {
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
+            }
+            if (this.twitter_id > 0) {
+                var data_t = {
+                    social_id: this.twitter_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Twitter",
+                    icon: "twitter_icon",
+                    url: this.twitter_url
+                };
+                this.editSocialMediaData(data_t);
+            } else if (this.twitter_url.length > 0) {
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
+            }
+            if (this.facebook_id > 0) {
+                var data_f = {
+                    social_id: this.facebook_id,
+                    id_project: this.storie_to_edit[0].id_project,
+                    name: "Facebook",
+                    icon: "facebook_icon",
+                    url: this.facebook_url
+                };
+                this.editSocialMediaData(data_f);
+            } else if (this.facebook_url.length > 0) {
+                this.saveSocialMedia(this.storie_to_edit[0].id_project);
+            }
         },
         editSocialMediaData: function editSocialMediaData(data) {
             axios.put('/api/social', data).then(function (response) {}).catch(function (error) {
@@ -48996,215 +48958,308 @@ var render = function() {
         ),
         _vm._v(" "),
         _vm._l(_vm.stories, function(storie, index) {
-          return _c("div", { staticClass: "form-row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: storie.description,
-                    expression: "storie.description"
+          return _c(
+            "div",
+            { staticClass: "form-row", staticStyle: { "margin-top": "5px" } },
+            [
+              _c("div", { staticClass: "col" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: storie.description,
+                      expression: "storie.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  staticStyle: { height: "220px" },
+                  attrs: {
+                    id: "storie_description",
+                    placeholder: "Storie Description",
+                    rows: "3"
+                  },
+                  domProps: { value: storie.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(storie, "description", $event.target.value)
+                    }
                   }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "storie_description",
-                  placeholder: "Storie Description",
-                  rows: "3"
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.image_url[index],
+                        expression: "form.image_url[index]"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Image Link",
+                      "aria-label": "Image Link"
+                    },
+                    domProps: { value: _vm.form.image_url[index] },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form.image_url, index, $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-secondary",
+                        attrs: { type: "button", id: "button-addon2" },
+                        on: {
+                          click: function($event) {
+                            _vm.addImage(index, _vm.form.image_url[index])
+                          }
+                        }
+                      },
+                      [_vm._v("Add")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "carousel slide",
+                      staticStyle: { "margin-top": "10px" },
+                      attrs: {
+                        id: "carouselExampleControls" + index,
+                        "data-ride": "carousel"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "carousel-inner" },
+                        _vm._l(storie.images, function(image, i_img) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass: "carousel-item",
+                              class: { active: i_img == 0 }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100",
+                                staticStyle: { height: "173px" },
+                                attrs: { src: image.url }
+                              })
+                            ]
+                          )
+                        })
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-prev",
+                          attrs: {
+                            href: "#carouselExampleControls" + index,
+                            role: "button",
+                            "data-slide": "prev"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-prev-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Previous")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-next",
+                          attrs: {
+                            href: "#carouselExampleControls" + index,
+                            role: "button",
+                            "data-slide": "next"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-next-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Next")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.video_url[index],
+                        expression: "form.video_url[index]"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Video Link",
+                      "aria-label": "Video Link"
+                    },
+                    domProps: { value: _vm.form.video_url[index] },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form.video_url, index, $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-secondary",
+                        attrs: { type: "button", id: "button-addon2" },
+                        on: {
+                          click: function($event) {
+                            _vm.addVideo(index, _vm.form.video_url[index])
+                          }
+                        }
+                      },
+                      [_vm._v("Add")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "carousel slide",
+                      staticStyle: { "margin-top": "10px" },
+                      attrs: {
+                        id: "carouselVideoControls" + index,
+                        "data-ride": "carousel"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "carousel-inner" },
+                        _vm._l(storie.videos, function(video, i_vid) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass: "carousel-item",
+                              class: { active: i_vid == 0 }
+                            },
+                            [
+                              _c("iframe", {
+                                staticStyle: { height: "173px" },
+                                attrs: {
+                                  width: "100%",
+                                  src: video.url,
+                                  frameborder: "0",
+                                  allow:
+                                    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+                                  allowfullscreen: ""
+                                }
+                              })
+                            ]
+                          )
+                        })
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-prev",
+                          attrs: {
+                            href: "#carouselVideoControls" + index,
+                            role: "button",
+                            "data-slide": "prev"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-prev-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Previous")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-next",
+                          attrs: {
+                            href: "#carouselVideoControls" + index,
+                            role: "button",
+                            "data-slide": "next"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-next-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Next")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      _vm.removeStorieForm(index)
+                    }
+                  }
                 },
-                domProps: { value: storie.description },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(storie, "description", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c("div", { staticClass: "input-group mb-3" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.image_url[index],
-                      expression: "form.image_url[index]"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    placeholder: "Image Link",
-                    "aria-label": "Image Link"
-                  },
-                  domProps: { value: _vm.form.image_url[index] },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form.image_url, index, $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group-append" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-secondary",
-                      attrs: { type: "button", id: "button-addon2" },
-                      on: {
-                        click: function($event) {
-                          _vm.addImage(index, _vm.form.image_url[index])
-                        }
-                      }
-                    },
-                    [_vm._v("Add")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "carousel slide",
-                    attrs: {
-                      id: "carouselExampleControls",
-                      "data-ride": "carousel"
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "carousel-inner" },
-                      [
-                        _vm._m(0, true),
-                        _vm._v(" "),
-                        _vm._l(storie.images, function(image) {
-                          return _c("div", { staticClass: "carousel-item" }, [
-                            _c("img", {
-                              staticClass: "d-block w-100",
-                              attrs: { src: image, alt: "First slide" }
-                            })
-                          ])
-                        })
-                      ],
-                      2
-                    ),
-                    _vm._v(" "),
-                    _vm._m(1, true),
-                    _vm._v(" "),
-                    _vm._m(2, true)
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c("div", { staticClass: "input-group mb-3" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.video_url[index],
-                      expression: "form.video_url[index]"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    placeholder: "Video Link",
-                    "aria-label": "Video Link"
-                  },
-                  domProps: { value: _vm.form.video_url[index] },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form.video_url, index, $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group-append" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-secondary",
-                      attrs: { type: "button", id: "button-addon2" },
-                      on: {
-                        click: function($event) {
-                          _vm.addVideo(index, _vm.form.video_url[index])
-                        }
-                      }
-                    },
-                    [_vm._v("Add")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "carousel slide",
-                    attrs: {
-                      id: "carouselExampleControls",
-                      "data-ride": "carousel"
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "carousel-inner" },
-                      [
-                        _vm._m(3, true),
-                        _vm._v(" "),
-                        _vm._l(storie.videos, function(video) {
-                          return _c("div", { staticClass: "carousel-item" }, [
-                            _c("iframe", {
-                              attrs: {
-                                width: "100%",
-                                src: video,
-                                frameborder: "0",
-                                allow:
-                                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
-                                allowfullscreen: ""
-                              }
-                            })
-                          ])
-                        })
-                      ],
-                      2
-                    ),
-                    _vm._v(" "),
-                    _vm._m(4, true),
-                    _vm._v(" "),
-                    _vm._m(5, true)
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    _vm.removeStorieForm(index)
-                  }
-                }
-              },
-              [_vm._v("-")]
-            )
-          ])
+                [_vm._v("-")]
+              )
+            ]
+          )
         }),
         _vm._v(" "),
         _vm.is_new_project
@@ -49235,136 +49290,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carousel-item active" }, [
-      _c("img", {
-        staticClass: "d-block w-100",
-        attrs: {
-          src:
-            "https://www.mpaa.org/wp-content/uploads/2018/03/466036929-1.jpg",
-          alt: "First slide"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-prev",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "prev"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-prev-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-next",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "next"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-next-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carousel-item active" }, [
-      _c("iframe", {
-        attrs: {
-          width: "100%",
-          src: "https://www.youtube.com/embed/DJ6PD_jBtU0",
-          frameborder: "0",
-          allow:
-            "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
-          allowfullscreen: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-prev",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "prev"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-prev-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-next",
-        attrs: {
-          href: "#carouselExampleControls",
-          role: "button",
-          "data-slide": "next"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-next-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

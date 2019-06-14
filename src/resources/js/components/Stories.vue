@@ -1,5 +1,5 @@
 <template>
-<div class="container" style="margin-top: 130px;">
+<div class="container">
         <h5>{{project_name}}</h5>  
         <div v-for="(storie, index) in stories">         
             <div class="row">                
@@ -8,20 +8,17 @@
                 </div>
                 <div class="col">
                     <div class="input-group mb-3">                       
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="https://www.mpaa.org/wp-content/uploads/2018/03/466036929-1.jpg" alt="First slide">
-                                </div>  
-                                <div class="carousel-item" v-for="image in storie.images">
-                                    <img class="d-block w-100" :src="image.url" alt="First slide">
+                        <div :id="'carouselExampleControls'+index" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">                               
+                                <div class="carousel-item" :class="{'active': i_img==0}" v-for="(image, i_img) in storie.images">
+                                    <img class="d-block w-100" :src="image.url">
                                 </div>                               
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <a class="carousel-control-prev" :href="'#carouselExampleControls'+index" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <a class="carousel-control-next" :href="'#carouselExampleControls'+index" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -30,20 +27,17 @@
                 </div>
                 <div class="col">
                     <div class="input-group mb-3">                       
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <iframe width="100%" src="https://www.youtube.com/embed/DJ6PD_jBtU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="carousel-item"  v-for="video in storie.videos">
+                        <div :id="'carouselVideoControls'+index" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">                                
+                                <div class="carousel-item"  :class="{'active': i_vid==0}" v-for="(video, i_vid) in storie.videos">
                                     <iframe width="100%" :src="video.url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>                                
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <a class="carousel-control-prev" :href="'#carouselVideoControls'+index" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <a class="carousel-control-next" :href="'#carouselVideoControls'+index" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
