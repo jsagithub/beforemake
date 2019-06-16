@@ -2,7 +2,7 @@
 <div class="container">
         <h5>{{project_name}}</h5>  
         <div v-for="(storie, index) in stories">         
-            <div class="row">                
+            <div class="row" style="background-color: #f5f5f5; padding: 10px;">                
                 <div class="col">
                     {{storie.description}}
                 </div>
@@ -46,16 +46,18 @@
                 </div>                    
             </div>
             <div class="row profile--gray-content profile--scroll-content">
-                <div class="col">
-                    <div v-for="comment in storie.comments" class="profile--info">
-                        <h4 class="card-title">
-                            <img :src="comment.user.img" class="img-fluid rounded" style="width:50px;"> 
-                            {{comment.user.name}}
-                            <a style="font-size:15px;">
-                                {{comment.comment}}
-                            </a>
-                    </h4>
-                    </div>                    
+                <div class="col" style="padding: 5px; border: 1px solid rgb(223, 222, 222);">
+                    <div style="max-height: 300px; overflow: scroll;">
+                        <div v-for="comment in storie.comments" class="profile--info">
+                            <h4 class="card-title">
+                                <img :src="comment.user.img" class="img-fluid rounded" style="width:50px;"> 
+                                {{comment.user.name}}
+                                <a style="font-size:15px;">
+                                    {{comment.comment}}
+                                </a>
+                            </h4>
+                        </div>  
+                    </div>                  
                     <div class="input-group mb-3">
                         <input v-model="storie.new_comment" type="text" class="form-control" placeholder="Write a message" aria-label="Write a message" aria-describedby="button-addon2">
                         <div class="input-group-append">

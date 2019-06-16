@@ -47352,9 +47352,11 @@ var render = function() {
     _c("section", { attrs: { id: "about" } }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
+          _vm._m(0),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-lg-8 mx-auto" },
+            { staticClass: "col" },
             [_c("h2", [_vm._v("About this page")]), _vm._v(" "), _c("ranking")],
             1
           )
@@ -47362,12 +47364,38 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _vm._m(1),
     _vm._v(" "),
-    _vm._m(1)
+    _vm._m(2)
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "data:image/png;base64,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"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" }, [
+          _c("img", {
+            attrs: {
+              src:
+                "data:image/png;base64,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"
+            }
+          })
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -47378,13 +47406,33 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-8 mx-auto" }, [
+            _c("div", { staticClass: "col" }, [
               _c("h2", [_vm._v("Services we offer")]),
               _vm._v(" "),
               _c("p", { staticClass: "lead" }, [
                 _vm._v(
                   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos."
                 )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "data:image/png;base64,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"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card" }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAS1BMVEX///+ZmZmTk5Pm5uaWlpaQkJD39/erq6vp6emenp7a2tq0tLTe3t7BwcHKysqurq7w8PC6urrR0dGkpKTFxcXW1tbNzc2Kioq3t7eIBhHRAAAJR0lEQVR4nO2d6XqjOgyGsbHZd0La+7/SY0neQhIaSJtOTvX9mELw+mLLm3gmEfKvSyRyKf62FpnINPnbSpkBM0iYAYgZMAMQM2AGIGbADEDMgBmAmAEzADEDZgBiBswAxAyYAYgZMAMQM2AGIGbADEDMgBmAmAEzADEDZgBiBswAxAyYAYgZMAMQM2AGIGbADEDMgBmAmAEzADEDZgBiBswAxAyYAei1DIqxbdvxZdk9qCMMihY12NsFbk4PxWy0UkrvzO7HdYRBBTVRsra3ozR34qGYjRRCyJ3Z/bgOMYCaCKFtQ2iVuSkfivk/agfEQOV0u4NBmvd9n+/M7sf1BAOhKeIOBv+mnmGgZry9YlA0VVM8nNrQNM66Fk2axY+yIm2adFhFWIfygZvbD77UMwyEbOD2kkHaa/yOWufNdcwGnpE9+ITLPClm81fPUM9JYTRX5XH232TXUQk7THwuKIHZ/TzNmK0ul52VSZ5hULqaXzCotbKAlO6vYkbjwmjCqT6l4MrY195aGWkhaOGldOtSmG0o3UC2ziQNpXstQs6728JhBhL+lVVyySCnKkkV9ZX7DMSshCJmcyvtpYulhcJGgD/qiX6sKYgJqeZglgdJuUr4++Aw/R0MNNX3ksGJCnNaTgJ+lO0q5pqBuend+/eXdsz9EG2VFkXa0WOKrylOR+k7BhSiK4oJflXX7e+nGGSFKZCcLhhQJ8HGWGJ1Vu3ymkEGRRAuGj2nd+7NCb5lKiRix8aXzMozmDDA4MPqxw3yswywYaqYwSK9oaSa2ercZUBhEReVAl/ouvVgqz+biwyagaL5KdaWGMxRJCzTOoEv9AyDARpCFzGgetlQWMbPy5hXDPAS3y419h6q4BZVTdvPpZEHk0aMk2APMKe2QiGDKzu0rWcYYD1kxKCPR4jIZnld2US8rIOFjxhMxhy6McYyqEKjN4OrixUsorOgO63iUwwyCQbw5Gueh3qtbm4zsBVHBrWPRAw67WvmGSwxA59A4cdFp52rsqcYYBNQ9eF2sMEgIwSnJk0L398purV49WU7iKVeyYC6ojhqDzYYxM3eM8A3Lu1MMIyNYdw4picZdO4dHBoXNhh0wU5m0tt9zG0OhYjGhRXtPXqSQaJiBlRG8fD8YIPBOTQp7GvEABuaqt1M4mJ+4OcTi1qvsr7QswwmGTNw88TpsXniBgOaOM3pkObBJjoroYUxlGGORPNEOabDkE61WTi9mEFy0Q52rhe2xgVr4WG0i+ZAi1tJqTIaUYswhkDO8tUM7EL62Lpxg0FhE1K6CD8CBHz/skwu1o0ijA1KfryAwfKhtf5wXb3UID8cbe4fVBgTL2uIRQ0lh0sCNsMlmbcBdwRgPwE2ErSbPGZtqVW+2OmU29d1+wdSy37aieBHzhf27SPdV2bSub8ZgO0h2tLPUhP8atPpEb3ZOdPgmeDsdO8K8bbejEGjWyztMMqbRveQ3o2BVGD63e7SkZZ/rbdjEFYFUn1LT3g7BqnScLKnoDU8dsT5SKLvxcBYgqprx/E0fVMbAL0dgx8QM2AGIGbADEDMgBmAmMFvMehnI9xvzUq4vD/haeDx1dLoq1j79DsMSoWndIndIdxYAsM2lbo6M6FY31XuX2IAC9/AQG60g5vefBTrzRmYhY/+4wy6kxHuN/5dBkHvzWBolq7rzpXfyxmyLAsbO+EuS5dzd+qWKJsMhVcXDIZmMiGnJiTjGTSnsfU+Z2sGQ3XuuuXortJRBug4h5sZmoxbkuC+udtQH93W+UlqG1DK0e2ICnh6CrVBBkNp0wQXu8qGtAwKQQ8shUsG1YwbK1GsfTrKIPKcE9ZLcIw3/P0RYB38KILf3c1xYYjTdOcJyEA17pE+JyGWLXcf4ml/3vAKBrC3Cd6VuLlJh7544iWzUHR0B6nhBWkb0HmI3GZAaZrAWJ0lSkgJ76SXrhmQJ4+JiSecRyAcZfDRLwV4oqRYBDp4g3NB21rx+Awbez+f0YO2GCPngdsMPkY0LllVBlyWQbkUDXp40Ml7xOCMyY5DkuGVPtAdjjII9kf4qsEZtD0B1H7nOwT8DH3lJoPMn5+Qhx3GtBvJ+HPtj1UiBsE5gXwWDjiPPz829sEbzhd9CTSCzqGIX80Tg99e7LGIBgOjBQZpPHYG8rt0mMFwyk0nhdNWbxDIKkIZoYNI1yqnulQuoH2jdxik7Ywh8d1TxZvYDQuj1RcM8N2LE31dpEJvewWDVqvY4FMTR3+h0vlSUsDK+cvZkBsMch2HjBnYTHN33B4YjM6BGYSX51cxaOlV+XZgzXFJHbYL3SO17hGuHWwwIO9bCKnvMOidu98dBjgN2X/0cowB+cSUjZkMXvgBoFVsCYX1KcOKnSHgWW0ywDmAylOYQa4YOH8P7+4XGJCD6Gcd9Kq+cOU5ZxmgC5kAs26PhKmwZNK6bQZYGzt/kKt2kIafg/ci/jrJEOuojjHAnGPPOTc1IXdh4S3iEHlVztt9AYdO8kZpVgysya38DCMwGNarpwObS8cYLKFqeWwPnB++78JkHbGLWp81/PkWg9E3k2xtE+m6oIliiIXlRrLCDYjVfOCruWMMaGqvumoqlYgZkFuiCO7zVJ2xWnL5hU1c6OOHqTqRgY8ZKFnWsw4JRwzIJ01+LtXS9WYMOjBZPjgueB88VeYXDGi8DjuEk3ObU7LetgfW3RPSzMsVA5OdfUpdP14v+BzQzX33RyzHGST2Iyqlsj7+7teUDkeosBP8Sas6pasFl9AUG+J0PjwRc954ZhmKgxwywO+KZUKOmkKSD6yNZcvdKD8DMSPrAZ/dw/PEkzJLPGiZbW8UBuUxN5qjlUtVwlqwHpIKPnKl11RDINpb781w1tvNlk9YYJZmkgMBc0wjxefmbUMq3u2CYnnzZzoarGF1+Tkd+cDxifVCNjyYYTY8PIcf7qe5nV22EfMr/fZ+4r8gZsAMQMyAGYCYATMAMQNmAGIGzADEDJgBiBkwAxAzYAYgZsAMQMyAGYCYATMAMQNmAGIGzADEDJgBiBkwAxAzYAYgZsAMQMyAGYCYATMAMQNmAGIGzADEDJgBiBkwAxAzYAYgZsAMQMyAGYCYATMAMQNmAGIGzADEDJgBiBkwAxAzYAYgZsAMQMyAGYCYATMAMQNmAGIGyEBNRfqXVUwqcf9d/J+VEv8BA2xmWPTCprUAAAAASUVORK5CYII="
+                  }
+                })
               ])
             ])
           ])
@@ -47800,6 +47848,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47881,177 +47931,188 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.stories, function(storie, index) {
         return _c("div", [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(storie.description) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c("div", { staticClass: "input-group mb-3" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "carousel slide",
-                    attrs: {
-                      id: "carouselExampleControls" + index,
-                      "data-ride": "carousel"
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "carousel-inner" },
-                      _vm._l(storie.images, function(image, i_img) {
-                        return _c(
-                          "div",
-                          {
-                            staticClass: "carousel-item",
-                            class: { active: i_img == 0 }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "d-block w-100",
-                              attrs: { src: image.url }
-                            })
-                          ]
-                        )
-                      })
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "carousel-control-prev",
-                        attrs: {
-                          href: "#carouselExampleControls" + index,
-                          role: "button",
-                          "data-slide": "prev"
-                        }
-                      },
-                      [
-                        _c("span", {
-                          staticClass: "carousel-control-prev-icon",
-                          attrs: { "aria-hidden": "true" }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "sr-only" }, [
-                          _vm._v("Previous")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "carousel-control-next",
-                        attrs: {
-                          href: "#carouselExampleControls" + index,
-                          role: "button",
-                          "data-slide": "next"
-                        }
-                      },
-                      [
-                        _c("span", {
-                          staticClass: "carousel-control-next-icon",
-                          attrs: { "aria-hidden": "true" }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-                      ]
-                    )
-                  ]
+          _c(
+            "div",
+            {
+              staticClass: "row",
+              staticStyle: { "background-color": "#f5f5f5", padding: "10px" }
+            },
+            [
+              _c("div", { staticClass: "col" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(storie.description) +
+                    "\n                "
                 )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "carousel slide",
+                      attrs: {
+                        id: "carouselExampleControls" + index,
+                        "data-ride": "carousel"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "carousel-inner" },
+                        _vm._l(storie.images, function(image, i_img) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass: "carousel-item",
+                              class: { active: i_img == 0 }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100",
+                                attrs: { src: image.url }
+                              })
+                            ]
+                          )
+                        })
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-prev",
+                          attrs: {
+                            href: "#carouselExampleControls" + index,
+                            role: "button",
+                            "data-slide": "prev"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-prev-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Previous")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-next",
+                          attrs: {
+                            href: "#carouselExampleControls" + index,
+                            role: "button",
+                            "data-slide": "next"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-next-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Next")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "carousel slide",
+                      attrs: {
+                        id: "carouselVideoControls" + index,
+                        "data-ride": "carousel"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "carousel-inner" },
+                        _vm._l(storie.videos, function(video, i_vid) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass: "carousel-item",
+                              class: { active: i_vid == 0 }
+                            },
+                            [
+                              _c("iframe", {
+                                attrs: {
+                                  width: "100%",
+                                  src: video.url,
+                                  frameborder: "0",
+                                  allow:
+                                    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+                                  allowfullscreen: ""
+                                }
+                              })
+                            ]
+                          )
+                        })
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-prev",
+                          attrs: {
+                            href: "#carouselVideoControls" + index,
+                            role: "button",
+                            "data-slide": "prev"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-prev-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Previous")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "carousel-control-next",
+                          attrs: {
+                            href: "#carouselVideoControls" + index,
+                            role: "button",
+                            "data-slide": "next"
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "carousel-control-next-icon",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Next")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c("div", { staticClass: "input-group mb-3" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "carousel slide",
-                    attrs: {
-                      id: "carouselVideoControls" + index,
-                      "data-ride": "carousel"
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "carousel-inner" },
-                      _vm._l(storie.videos, function(video, i_vid) {
-                        return _c(
-                          "div",
-                          {
-                            staticClass: "carousel-item",
-                            class: { active: i_vid == 0 }
-                          },
-                          [
-                            _c("iframe", {
-                              attrs: {
-                                width: "100%",
-                                src: video.url,
-                                frameborder: "0",
-                                allow:
-                                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
-                                allowfullscreen: ""
-                              }
-                            })
-                          ]
-                        )
-                      })
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "carousel-control-prev",
-                        attrs: {
-                          href: "#carouselVideoControls" + index,
-                          role: "button",
-                          "data-slide": "prev"
-                        }
-                      },
-                      [
-                        _c("span", {
-                          staticClass: "carousel-control-prev-icon",
-                          attrs: { "aria-hidden": "true" }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "sr-only" }, [
-                          _vm._v("Previous")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "carousel-control-next",
-                        attrs: {
-                          href: "#carouselVideoControls" + index,
-                          role: "button",
-                          "data-slide": "next"
-                        }
-                      },
-                      [
-                        _c("span", {
-                          staticClass: "carousel-control-next-icon",
-                          attrs: { "aria-hidden": "true" }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ])
-          ]),
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -48061,31 +48122,43 @@ var render = function() {
             [
               _c(
                 "div",
-                { staticClass: "col" },
+                {
+                  staticClass: "col",
+                  staticStyle: {
+                    padding: "5px",
+                    border: "1px solid rgb(223, 222, 222)"
+                  }
+                },
                 [
-                  _vm._l(storie.comments, function(comment) {
-                    return _c("div", { staticClass: "profile--info" }, [
-                      _c("h4", { staticClass: "card-title" }, [
-                        _c("img", {
-                          staticClass: "img-fluid rounded",
-                          staticStyle: { width: "50px" },
-                          attrs: { src: comment.user.img }
-                        }),
-                        _vm._v(
-                          " \n                            " +
-                            _vm._s(comment.user.name) +
-                            "\n                            "
-                        ),
-                        _c("a", { staticStyle: { "font-size": "15px" } }, [
+                  _c(
+                    "div",
+                    {
+                      staticStyle: { "max-height": "300px", overflow: "scroll" }
+                    },
+                    _vm._l(storie.comments, function(comment) {
+                      return _c("div", { staticClass: "profile--info" }, [
+                        _c("h4", { staticClass: "card-title" }, [
+                          _c("img", {
+                            staticClass: "img-fluid rounded",
+                            staticStyle: { width: "50px" },
+                            attrs: { src: comment.user.img }
+                          }),
                           _vm._v(
-                            "\n                                " +
-                              _vm._s(comment.comment) +
-                              "\n                            "
-                          )
+                            " \n                                " +
+                              _vm._s(comment.user.name) +
+                              "\n                                "
+                          ),
+                          _c("a", { staticStyle: { "font-size": "15px" } }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(comment.comment) +
+                                "\n                                "
+                            )
+                          ])
                         ])
                       ])
-                    ])
-                  }),
+                    })
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "input-group mb-3" }, [
                     _c("input", {
@@ -48131,8 +48204,7 @@ var render = function() {
                       )
                     ])
                   ])
-                ],
-                2
+                ]
               )
             ]
           )
