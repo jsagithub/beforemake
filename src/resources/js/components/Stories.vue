@@ -6,7 +6,7 @@
                 <div class="col">
                     {{storie.description}}
                 </div>
-                <div class="col">
+                <div class="col" v-if="storie.images[0]">
                     <div class="input-group mb-3">                       
                         <div :id="'carouselExampleControls'+index" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">                               
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col" v-if="storie.videos[0]">
                     <div class="input-group mb-3">                       
                         <div :id="'carouselVideoControls'+index" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">                                

@@ -10497,3 +10497,36 @@ body {
   border-radius: 6px;
 }
 
+.ranking-block {
+  height: 490px;
+  width: 10px;
+  background-color: #523f38;
+}
+
+.ranking-row {
+  height: 5px;
+  width: 60px;
+  background-color: #ff715b;
+  margin-top: 100px;
+}
+
+.ranking-content {
+  width: 126px;
+  max-height: 70px;
+  background-color: #fff;
+  border: 1px solid #4c5454;
+  margin-left: 55px;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.ranking-content_arrows {
+  font-size: 12px;
+}
+
+.ranking-content_arrows button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
