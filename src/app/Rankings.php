@@ -28,7 +28,7 @@ class Rankings extends Model
         foreach($rankings as $ranking) {
             $data[] = [
                 'id' => $ranking->id,
-                'id_project' =>$ranking->id_project,                
+                'project' =>$ranking->id_project,                
                 'position' => $ranking->position,                
                 'created_at' => $ranking->created_at->format('d/m/Y'),
                 'status' => ProjectStatus::findOrFail($ranking->id_project_status)

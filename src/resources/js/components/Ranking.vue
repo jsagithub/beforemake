@@ -18,11 +18,11 @@
                             </a>
                         </div>
                         <div class="col-2 ranking-content_arrows">
-                            <button>
+                            <button @click="upRanking(project.ranking[0].id, project.id,project.ranking[0].position)">
                                 <i class="fas fa-chevron-up"></i>
                             </button>
-                            <div>10</div>
-                            <button>
+                            <div>{{project.ranking[0].position}}</div>
+                            <button @click="downRanking(project.ranking[0].id, project.id,project.ranking[0].position)">
                                 <i class="fas fa-chevron-down"></i>
                             </button>
                         </div>
@@ -41,12 +41,59 @@ export default {
         }
     },
     created(){
-        axios.get('/api/projects_by_user/'+this.id_user)
-        .then(response => {   
-            this.projects= response.data;  
-        }).catch(error => {
-            console.log(error.response);               
-        });
+        this.getProjects();
+    },
+    methods:{
+        getProjects(){
+            this.projects = [];
+            axios.get('/api/projects_by_user/'+this.id_user)
+            .then(response => { 
+                response.data.forEach(project => {
+                    axios.get('/api/rankings_by_project/'+project.id)
+                    .then(response => {   
+                        let ranking_data = response.data;                    
+                        project.ranking = ranking_data;
+                        this.projects.push(project);
+                    }).catch(error => {
+                        console.log(error.response);               
+                    });
+                });            
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        upRanking(id_ranking, id_project, current_position){
+            let data = {
+                ranking_id: id_ranking,
+                id_project: id_project,
+                position: current_position+1,
+                id_project_status: 1
+            }
+            console.log(data);
+            axios.put('/api/rankings', data)
+            .then(response => {   
+                console.log(response.data);               
+               this.getProjects();
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        downRanking(id_ranking, id_project, current_position){
+            let data = {
+                ranking_id: id_ranking,
+                id_project: id_project,
+                position: current_position-1,
+                id_project_status: 1
+            }
+            console.log(data);
+            axios.put('/api/rankings', data)
+            .then(response => {   
+                console.log(response.data);               
+               this.getProjects();
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        }
     }
 }
 </script>

@@ -47354,12 +47354,7 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col" },
-            [_c("h2", [_vm._v("About this page")]), _vm._v(" "), _c("ranking")],
-            1
-          )
+          _c("div", { staticClass: "col ranking-home" }, [_c("ranking")], 1)
         ])
       ])
     ]),
@@ -47866,13 +47861,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             project_name: '',
             id_project: 0,
-            stories: []
+            stories: [],
+            social_media: []
         };
     },
     created: function created() {
@@ -47880,6 +47883,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.id_project = window.location.search.split("?")[1];
             this.getProject();
             this.getStories();
+            this.getSocialMedia();
         }
     },
 
@@ -47893,34 +47897,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error.response);
             });
         },
-        getStories: function getStories() {
+        getSocialMedia: function getSocialMedia() {
             var _this2 = this;
 
+            axios.get('/api/social_by_project/' + this.id_project).then(function (response) {
+                console.log(response.data);
+                _this2.social_media = response.data;
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        getStories: function getStories() {
+            var _this3 = this;
+
             axios.get('/api/stories_by_project/' + this.id_project).then(function (response) {
-                _this2.stories = response.data;
+                _this3.stories = response.data;
             }).catch(function (error) {
                 console.log(error.response);
             });
         },
         addComment: function addComment(id_storie, comment) {
-            var _this3 = this;
+            var _this4 = this;
 
-            console.log(id_storie, comment);
             var data = {
                 id_stories: id_storie,
                 comment: comment
             };
             axios.post('/api/comment', data).then(function (response) {
-                _this3.getStories();
+                _this4.getStories();
             }).catch(function (error) {
                 console.log(error.response);
             });
         },
         deleteProject: function deleteProject() {
-            var _this4 = this;
+            var _this5 = this;
 
             axios.delete('/api/projects/' + this.id_project).then(function (response) {
-                _this4.getStories();
+                _this5.getStories();
             }).catch(function (error) {
                 console.log(error.response);
             });
@@ -47944,6 +47957,18 @@ var render = function() {
     { staticClass: "container" },
     [
       _c("h5", [_vm._v(_vm._s(_vm.project_name))]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.social_media, function(sm) {
+          return _c("div", { staticClass: "col" }, [
+            _c("a", { attrs: { href: sm.url } }, [
+              _c("i", { staticClass: "fab", class: sm.icon })
+            ])
+          ])
+        })
+      ),
       _vm._v(" "),
       _vm._l(_vm.stories, function(storie, index) {
         return _c("div", [
@@ -48688,7 +48713,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = {
                     id_project: id_project,
                     name: "Youtube",
-                    icon: "youtube_icon",
+                    icon: "fa-youtube",
                     url: this.youtube_url
                 };
                 this.sentDataSocialMedia(data);
@@ -48697,7 +48722,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var _data = {
                     id_project: id_project,
                     name: "Instagram",
-                    icon: "instagram_icon",
+                    icon: "fa-instagram",
                     url: this.instagram_url
                 };
                 this.sentDataSocialMedia(_data);
@@ -48706,7 +48731,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var _data2 = {
                     id_project: id_project,
                     name: "Twitter",
-                    icon: "twitter_icon",
+                    icon: "fa-twitter",
                     url: this.twitter_url
                 };
                 this.sentDataSocialMedia(_data2);
@@ -48715,7 +48740,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var _data3 = {
                     id_project: id_project,
                     name: "Facebook",
-                    icon: "facebook_icon",
+                    icon: "fa-facebook",
                     url: this.facebook_url
                 };
                 this.sentDataSocialMedia(_data3);
@@ -49488,13 +49513,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     created: function created() {
-        var _this = this;
+        this.getProjects();
+    },
 
-        axios.get('/api/projects_by_user/' + this.id_user).then(function (response) {
-            _this.projects = response.data;
-        }).catch(function (error) {
-            console.log(error.response);
-        });
+    methods: {
+        getProjects: function getProjects() {
+            var _this = this;
+
+            this.projects = [];
+            axios.get('/api/projects_by_user/' + this.id_user).then(function (response) {
+                response.data.forEach(function (project) {
+                    axios.get('/api/rankings_by_project/' + project.id).then(function (response) {
+                        var ranking_data = response.data;
+                        project.ranking = ranking_data;
+                        _this.projects.push(project);
+                    }).catch(function (error) {
+                        console.log(error.response);
+                    });
+                });
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        upRanking: function upRanking(id_ranking, id_project, current_position) {
+            var _this2 = this;
+
+            var data = {
+                ranking_id: id_ranking,
+                id_project: id_project,
+                position: current_position + 1,
+                id_project_status: 1
+            };
+            console.log(data);
+            axios.put('/api/rankings', data).then(function (response) {
+                console.log(response.data);
+                _this2.getProjects();
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
+        downRanking: function downRanking(id_ranking, id_project, current_position) {
+            var _this3 = this;
+
+            var data = {
+                ranking_id: id_ranking,
+                id_project: id_project,
+                position: current_position - 1,
+                id_project_status: 1
+            };
+            console.log(data);
+            axios.put('/api/rankings', data).then(function (response) {
+                console.log(response.data);
+                _this3.getProjects();
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        }
     }
 });
 
@@ -49550,7 +49624,41 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(0, true)
+              _c("div", { staticClass: "col-2 ranking-content_arrows" }, [
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.upRanking(
+                          project.ranking[0].id,
+                          project.id,
+                          project.ranking[0].position
+                        )
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-chevron-up" })]
+                ),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(project.ranking[0].position))]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.downRanking(
+                          project.ranking[0].id,
+                          project.id,
+                          project.ranking[0].position
+                        )
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-chevron-down" })]
+                )
+              ])
             ])
           ])
         ])
@@ -49558,20 +49666,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2 ranking-content_arrows" }, [
-      _c("button", [_c("i", { staticClass: "fas fa-chevron-up" })]),
-      _vm._v(" "),
-      _c("div", [_vm._v("10")]),
-      _vm._v(" "),
-      _c("button", [_c("i", { staticClass: "fas fa-chevron-down" })])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

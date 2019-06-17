@@ -14,8 +14,7 @@
             </div>
           </div>
           </div>
-          <div class="col">
-            <h2>About this page</h2>
+          <div class="col ranking-home">
             <ranking></ranking>
           </div>
         </div>

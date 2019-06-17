@@ -1,6 +1,13 @@
 <template>
 <div class="container">
-        <h5>{{project_name}}</h5>  
+        <h5>{{project_name}}</h5>
+        <div class="row">  
+            <div class="col" v-for="sm in social_media">
+                <a :href="sm.url">
+                   <i class="fab" :class="sm.icon"></i>
+                </a>
+            </div>
+        </div>
         <div v-for="(storie, index) in stories">         
             <div class="row" style="background-color: #f5f5f5; padding: 10px;">                
                 <div class="col">
@@ -77,7 +84,8 @@ export default {
         return{
             project_name: '',
             id_project: 0,
-            stories: []
+            stories: [],
+            social_media: []
         }
     },
     created(){
@@ -85,6 +93,7 @@ export default {
             this.id_project=window.location.search.split("?")[1];
             this.getProject();
             this.getStories();
+            this.getSocialMedia();
         }        
        
     },
@@ -93,6 +102,15 @@ export default {
             axios.get('/api/projects/'+this.id_project)
             .then(response => { 
                 this.project_name= response.data.data.title;  
+            }).catch(error => {
+                console.log(error.response);               
+            });
+        },
+        getSocialMedia(){
+            axios.get('/api/social_by_project/'+this.id_project)
+            .then(response => { 
+                console.log(response.data);
+                this.social_media = response.data;  
             }).catch(error => {
                 console.log(error.response);               
             });
@@ -106,7 +124,6 @@ export default {
             });
         },
         addComment(id_storie, comment){
-            console.log(id_storie, comment);
             let data = {
                 id_stories: id_storie,
                 comment: comment

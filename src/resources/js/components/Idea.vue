@@ -202,7 +202,7 @@ export default {
                let data = {
                    id_project: id_project,
                    name: "Youtube",
-                   icon: "youtube_icon",
+                   icon: "fa-youtube",
                    url: this.youtube_url
                }
                this.sentDataSocialMedia(data);
@@ -211,7 +211,7 @@ export default {
                let data = {
                    id_project: id_project,
                    name: "Instagram",
-                   icon: "instagram_icon",
+                   icon: "fa-instagram",
                    url: this.instagram_url
                }
                this.sentDataSocialMedia(data);
@@ -220,7 +220,7 @@ export default {
                let data = {
                    id_project: id_project,
                    name: "Twitter",
-                   icon: "twitter_icon",
+                   icon: "fa-twitter",
                    url: this.twitter_url
                }
                this.sentDataSocialMedia(data);
@@ -229,7 +229,7 @@ export default {
                let data = {
                    id_project: id_project,
                    name: "Facebook",
-                   icon: "facebook_icon",
+                   icon: "fa-facebook",
                    url: this.facebook_url
                }
                this.sentDataSocialMedia(data);

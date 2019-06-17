@@ -10530,3 +10530,9 @@ body {
   cursor: pointer;
 }
 
+.ranking-home {
+  border-radius: 5px;
+  background-color: white;
+  padding: 60px;
+}
+
