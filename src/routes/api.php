@@ -43,9 +43,9 @@ Route::delete('stories/{id}', 'StoriesController@destroy');
 Route::get('comments', 'CommentsController@index');
 Route::get('comment/{id}', 'CommentsController@show');
 Route::get('comment_by_storie/{id_storie}', 'CommentsController@show_by_storie');
-Route::post('comment', 'CommentsController@store');
-Route::put('comment', 'CommentsController@store'); 
-Route::delete('comment/{id}', 'CommentsController@destroy');
+Route::post('comment', 'CommentsController@store')->middleware('auth:api');
+Route::put('comment', 'CommentsController@store')->middleware('auth:api');
+Route::delete('comment/{id}', 'CommentsController@destroy')->middleware('auth:api');
 //Images
 Route::get('images', 'ImagesController@index');
 Route::get('images/{id}', 'ImagesController@show');

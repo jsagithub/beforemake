@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Comments;
 use App\Http\Resources\Comments as CommentsResource;
+use App\User; 
+use Illuminate\Support\Facades\Auth; 
 
 class CommentsController extends Controller
 {
@@ -24,12 +26,15 @@ class CommentsController extends Controller
     
     public function store(Request $request)
     {
+        if(!Auth::user()->id){
+            abort(403);
+        }
+        $user = Auth::user(); 
         $comment = $request->isMethod('put') ? Comments::findOrFail($request->comment_id) : new Comments;
         
         $comment->id = $request->input('comment_id');
         $comment->id_stories = $request->input('id_stories');
-        // Need to be changed
-        $comment->id_user = 1;
+        $comment->id_user = $user->id;
         $comment->comment = $request->input('comment');
        
         if ($comment->save()) {
@@ -62,6 +67,9 @@ class CommentsController extends Controller
     public function destroy($id)
     {
         $comment = Comments::findOrFail($id);
+        if($comment->id_user !==Auth::user()->id){
+            abort(403);
+        }
         if ($comment->delete()) {
             return new CommentsResource($comment);
         }  
