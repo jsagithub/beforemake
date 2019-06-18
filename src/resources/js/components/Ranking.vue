@@ -37,14 +37,36 @@ export default {
     data(){
         return {
             projects: [],
-            id_user: 1
+            id_user: 0,
+            is_profile: false
         }
     },
     created(){
-        this.getProjects();
+        this.getUserInfo();        
     },
     methods:{
-        getProjects(){
+        getUserInfo(){
+            axios.get('/api/user')
+            .then(res => {    
+                if(res){ 
+                    this.id_user = res.data.id;
+                    if(!isNaN(window.location.search.split("?")[1])){
+                        this.getProjects();
+                        this.is_profile = true;
+                    }
+                    else{
+                        this.getProjectsByStatus();
+                    }
+                }
+                else{
+                    this.getProjectsByStatus();
+                }
+            })
+            .catch(err => {
+                this.getProjectsByStatus();
+            });
+        },    
+        getProjects(){            
             this.projects = [];
             axios.get('/api/projects_by_user/'+this.id_user)
             .then(response => { 
@@ -60,6 +82,22 @@ export default {
                 });            
             }).catch(error => {
                 console.log(error.response);               
+            });          
+        },
+        getProjectsByStatus(){
+            this.projects = [];
+            axios.get('/api/rankings_by_status/1')
+            .then(response => {
+                console.log(response.data); 
+                response.data.forEach(ranking => {
+                    let project = ranking.project;  
+                    project.user = ranking.user;                 
+                    project.ranking = [{'id':ranking.id, 'position':ranking.position}];
+                    this.projects.push(project);
+                });  
+                
+            }).catch(error => {
+                console.log(error.response);               
             });
         },
         upRanking(id_ranking, id_project, current_position){
@@ -69,11 +107,14 @@ export default {
                 position: current_position+1,
                 id_project_status: 1
             }
-            console.log(data);
             axios.put('/api/rankings', data)
-            .then(response => {   
-                console.log(response.data);               
-               this.getProjects();
+            .then(response => {  
+               if(this.is_profile){               
+                this.getProjects();
+               }
+               else{
+                   this.getProjectsByStatus();
+               }
             }).catch(error => {
                 console.log(error.response);               
             });
@@ -85,11 +126,14 @@ export default {
                 position: current_position-1,
                 id_project_status: 1
             }
-            console.log(data);
             axios.put('/api/rankings', data)
-            .then(response => {   
-                console.log(response.data);               
-               this.getProjects();
+            .then(response => {                  
+               if(this.is_profile){               
+                this.getProjects();
+               }
+               else{
+                   this.getProjectsByStatus();
+               }
             }).catch(error => {
                 console.log(error.response);               
             });

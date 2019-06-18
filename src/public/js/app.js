@@ -49716,16 +49716,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             projects: [],
-            id_user: 1
+            id_user: 0,
+            is_profile: false
         };
     },
     created: function created() {
-        this.getProjects();
+        this.getUserInfo();
     },
 
     methods: {
-        getProjects: function getProjects() {
+        getUserInfo: function getUserInfo() {
             var _this = this;
+
+            axios.get('/api/user').then(function (res) {
+                if (res) {
+                    _this.id_user = res.data.id;
+                    if (!isNaN(window.location.search.split("?")[1])) {
+                        _this.getProjects();
+                        _this.is_profile = true;
+                    } else {
+                        _this.getProjectsByStatus();
+                    }
+                } else {
+                    _this.getProjectsByStatus();
+                }
+            }).catch(function (err) {
+                _this.getProjectsByStatus();
+            });
+        },
+        getProjects: function getProjects() {
+            var _this2 = this;
 
             this.projects = [];
             axios.get('/api/projects_by_user/' + this.id_user).then(function (response) {
@@ -49733,7 +49753,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     axios.get('/api/rankings_by_project/' + project.id).then(function (response) {
                         var ranking_data = response.data;
                         project.ranking = ranking_data;
-                        _this.projects.push(project);
+                        _this2.projects.push(project);
                     }).catch(function (error) {
                         console.log(error.response);
                     });
@@ -49742,8 +49762,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error.response);
             });
         },
+        getProjectsByStatus: function getProjectsByStatus() {
+            var _this3 = this;
+
+            this.projects = [];
+            axios.get('/api/rankings_by_status/1').then(function (response) {
+                console.log(response.data);
+                response.data.forEach(function (ranking) {
+                    var project = ranking.project;
+                    project.user = ranking.user;
+                    project.ranking = [{ 'id': ranking.id, 'position': ranking.position }];
+                    _this3.projects.push(project);
+                });
+            }).catch(function (error) {
+                console.log(error.response);
+            });
+        },
         upRanking: function upRanking(id_ranking, id_project, current_position) {
-            var _this2 = this;
+            var _this4 = this;
 
             var data = {
                 ranking_id: id_ranking,
@@ -49751,16 +49787,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 position: current_position + 1,
                 id_project_status: 1
             };
-            console.log(data);
             axios.put('/api/rankings', data).then(function (response) {
-                console.log(response.data);
-                _this2.getProjects();
+                if (_this4.is_profile) {
+                    _this4.getProjects();
+                } else {
+                    _this4.getProjectsByStatus();
+                }
             }).catch(function (error) {
                 console.log(error.response);
             });
         },
         downRanking: function downRanking(id_ranking, id_project, current_position) {
-            var _this3 = this;
+            var _this5 = this;
 
             var data = {
                 ranking_id: id_ranking,
@@ -49768,10 +49806,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 position: current_position - 1,
                 id_project_status: 1
             };
-            console.log(data);
             axios.put('/api/rankings', data).then(function (response) {
-                console.log(response.data);
-                _this3.getProjects();
+                if (_this5.is_profile) {
+                    _this5.getProjects();
+                } else {
+                    _this5.getProjectsByStatus();
+                }
             }).catch(function (error) {
                 console.log(error.response);
             });

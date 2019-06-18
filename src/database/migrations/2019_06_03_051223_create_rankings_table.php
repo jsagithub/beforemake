@@ -23,6 +23,9 @@ class CreateRankingsTable extends Migration
             $table->integer('id_project_status')->unsigned();
             $table->foreign('id_project_status')
                   ->references('id')->on('project_statuses');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')
+                ->references('id')->on('users');
             $table->timestamps();
         });
     }

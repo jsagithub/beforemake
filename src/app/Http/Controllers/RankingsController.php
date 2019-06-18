@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Rankings;
 use App\Http\Resources\Rankings as RankingsResource;
+use Illuminate\Support\Facades\Auth;
 
 class RankingsController extends Controller
 {
@@ -29,12 +30,17 @@ class RankingsController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->id){
+            abort(403);
+        }
+        $user = Auth::user();
         $ranking = $request->isMethod('put') ? Rankings::findOrFail($request->ranking_id) : new Rankings;
         
         $ranking->id = $request->input('ranking_id');
         $ranking->id_project = $request->input('id_project');        
         $ranking->position = $request->input('position');
         $ranking->id_project_status = $request->input('id_project_status');
+        $ranking->id_user = $user->id;
         if ($ranking->save()) {
            return new RankingsResource($ranking);
         }

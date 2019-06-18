@@ -70,6 +70,6 @@ Route::delete('videos/{id}', 'VideosController@destroy')->middleware('auth:api')
 Route::get('rankings', 'RankingsController@index');
 Route::get('rankings_by_project/{id_project}', 'RankingsController@rankings_by_project');
 Route::get('rankings_by_status/{id_status}', 'RankingsController@rankings_by_status');
-Route::post('rankings', 'RankingsController@store');
-Route::put('rankings', 'RankingsController@store');
+Route::post('rankings', 'RankingsController@store')->middleware('auth:api');
+Route::put('rankings', 'RankingsController@store')->middleware('auth:api');
 Route::delete('ranking/{id}', 'RankingsController@destroy')->middleware('auth:api');
