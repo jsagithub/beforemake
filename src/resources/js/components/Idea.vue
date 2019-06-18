@@ -1,5 +1,25 @@
 <template>
-    <div class="container">
+    <div class="container">       
+        <!-- Modal -->
+        <div class="modal fade" id="ideaModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Storie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" @click="removeStorieForm(index_storie)">Delete</button>
+                </div>
+                </div>
+            </div>
+        </div>
         <h5>New Project</h5>
         <form>
             <div class="form-row">
@@ -70,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger"  @click="removeStorieForm(index)">-</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ideaModal" @click="changeIndexStorie(index)">-</button>
             </div>
             <button v-if="is_new_project" type="button" class="btn btn-success" @click="saveProject">Add</button>
             <button v-if="!is_new_project" type="button" class="btn btn-success" @click="editProject">Edit</button>            
@@ -99,7 +119,8 @@ export default {
             form: {
                 image_url: [],
                 video_url: []
-            }
+            },
+            index_storie: 0
             
         }
     },
@@ -399,6 +420,9 @@ export default {
             }).catch(error => {
                 console.log(error.response);               
             });
+        },
+        changeIndexStorie(index){
+            this.index_storie = index;
         }
 
     }
