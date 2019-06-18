@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\SocialMedias;
 use App\Http\Resources\SocialMedias as SocialMediasResource;
+use Illuminate\Support\Facades\Auth;
 
 class SocialMediasController extends Controller
 {
@@ -29,6 +30,10 @@ class SocialMediasController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->id){
+            abort(403);
+        }
+        $user = Auth::user();
         $social = $request->isMethod('put') ? SocialMedias::findOrFail($request->social_id) : new SocialMedias;
         
         $social->id = $request->input('social_id');
@@ -36,8 +41,7 @@ class SocialMediasController extends Controller
         $social->name = $request->input('name');
         $social->icon = $request->input('icon');
         $social->url = $request->input('url');
-        //Need to be changed to Auth
-        $social->id_user = 1;
+        $social->id_user = $user->id;
         if ($social->save()) {
            return new SocialMediasResource($social);
         }
@@ -69,6 +73,9 @@ class SocialMediasController extends Controller
     public function destroy($id)
     {
         $social = SocialMedias::findOrFail($id);
+        if($social->id_user !==Auth::user()->id){
+            abort(403);
+        }
         if ($social->delete()) {
             return new SocialMediasResource($social);
         }  

@@ -29,16 +29,16 @@ Route::get('projects', 'ProjectsController@index');
 Route::get('projects/{id}', 'ProjectsController@show');
 Route::get('projects_by_user/{id_user}', 'ProjectsController@show_by_user');
 Route::get('projects_by_status/{id_status}', 'ProjectsController@show_by_status');
-Route::post('projects', 'ProjectsController@store');
-Route::put('projects', 'ProjectsController@store'); 
-Route::delete('projects/{id}', 'ProjectsController@destroy');
+Route::post('projects', 'ProjectsController@store')->middleware('auth:api');
+Route::put('projects', 'ProjectsController@store')->middleware('auth:api'); 
+Route::delete('projects/{id}', 'ProjectsController@destroy')->middleware('auth:api');
 //Stories
 Route::get('stories', 'StoriesController@index');
 Route::get('stories/{id}', 'StoriesController@show');
 Route::get('stories_by_project/{id_project}', 'StoriesController@show_by_project');
-Route::post('stories', 'StoriesController@store');
-Route::put('stories', 'StoriesController@store'); 
-Route::delete('stories/{id}', 'StoriesController@destroy');
+Route::post('stories', 'StoriesController@store')->middleware('auth:api');
+Route::put('stories', 'StoriesController@store')->middleware('auth:api'); 
+Route::delete('stories/{id}', 'StoriesController@destroy')->middleware('auth:api');
 //Comments
 Route::get('comments', 'CommentsController@index');
 Route::get('comment/{id}', 'CommentsController@show');
@@ -50,26 +50,26 @@ Route::delete('comment/{id}', 'CommentsController@destroy')->middleware('auth:ap
 Route::get('images', 'ImagesController@index');
 Route::get('images/{id}', 'ImagesController@show');
 Route::get('images_by_storie/{id_storie}', 'ImagesController@show_by_storie');
-Route::post('images', 'ImagesController@store');
-Route::put('images', 'ImagesController@store'); 
-Route::delete('images/{id}', 'ImagesController@destroy');
+Route::post('images', 'ImagesController@store')->middleware('auth:api');
+Route::put('images', 'ImagesController@store')->middleware('auth:api'); 
+Route::delete('images/{id}', 'ImagesController@destroy')->middleware('auth:api');
 //Social Media
 Route::get('social', 'SocialMediasController@index');
 Route::get('social/{id}', 'SocialMediasController@show');
 Route::get('social_by_project/{id_project}', 'SocialMediasController@show_by_project');
-Route::post('social', 'SocialMediasController@store');
-Route::put('social', 'SocialMediasController@store');
-Route::delete('social/{id}', 'SocialMediasController@destroy');
+Route::post('social', 'SocialMediasController@store')->middleware('auth:api');
+Route::put('social', 'SocialMediasController@store')->middleware('auth:api');
+Route::delete('social/{id}', 'SocialMediasController@destroy')->middleware('auth:api');
 //videos
 Route::get('videos', 'VideosController@index');
 Route::get('videos_by_storie/{id_storie}', 'VideosController@show_by_storie');
-Route::post('videos', 'VideosController@store');
-Route::put('videos', 'VideosController@store');
-Route::delete('videos/{id}', 'VideosController@destroy');
+Route::post('videos', 'VideosController@store')->middleware('auth:api');
+Route::put('videos', 'VideosController@store')->middleware('auth:api');
+Route::delete('videos/{id}', 'VideosController@destroy')->middleware('auth:api');
 //Rankings
 Route::get('rankings', 'RankingsController@index');
 Route::get('rankings_by_project/{id_project}', 'RankingsController@rankings_by_project');
 Route::get('rankings_by_status/{id_status}', 'RankingsController@rankings_by_status');
 Route::post('rankings', 'RankingsController@store');
 Route::put('rankings', 'RankingsController@store');
-Route::delete('ranking/{id}', 'RankingsController@destroy');
+Route::delete('ranking/{id}', 'RankingsController@destroy')->middleware('auth:api');

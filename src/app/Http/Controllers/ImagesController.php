@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Images;
 use App\Http\Resources\Images as ImagesResource;
+use Illuminate\Support\Facades\Auth;
 
 class ImagesController extends Controller
 {
@@ -29,13 +30,17 @@ class ImagesController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->id){
+            abort(403);
+        }
+        $user = Auth::user();
+
         $image = $request->isMethod('put') ? Images::findOrFail($request->image_id) : new Images;
         
         $image->id = $request->input('image_id');
         $image->id_stories = $request->input('id_stories');
         $image->url = $request->input('url');
-        //Need to be changed to Auth
-        $image->id_user = 1;
+        $image->id_user = $user->id;
         if ($image->save()) {
            return new ImagesResource($image);
         }
@@ -67,6 +72,9 @@ class ImagesController extends Controller
     public function destroy($id)
     {
         $image = Images::findOrFail($id);
+        if($image->id_user !==Auth::user()->id){
+            abort(403);
+        }
         if ($image->delete()) {
             return new ImagesResource($image);
         }  

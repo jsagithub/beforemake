@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Stories;
 use App\Http\Resources\Stories as StoriesResource;
+use Illuminate\Support\Facades\Auth;
 
 class StoriesController extends Controller
 {
@@ -29,13 +30,16 @@ class StoriesController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->id){
+            abort(403);
+        }
+        $user = Auth::user();
         $storie = $request->isMethod('put') ? Stories::findOrFail($request->storie_id) : new Stories;
         
         $storie->id = $request->input('storie_id');
         $storie->id_project = $request->input('id_project');       
         $storie->description = $request->input('description');
-        //Need to be changed to Auth
-        $storie->id_user = 1;
+        $storie->id_user = $user->id;
         
         if ($storie->save()) {
            return new StoriesResource($storie);
@@ -67,6 +71,9 @@ class StoriesController extends Controller
     public function destroy($id)
     {
         $storie = Stories::findOrFail($id);
+        if($storie->id_user !==Auth::user()->id){
+            abort(403);
+        }
         if ($storie->delete()) {
             return new StoriesResource($storie);
         } 

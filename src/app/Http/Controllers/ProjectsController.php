@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Projects;
 use App\Http\Resources\Projects as ProjectsResource;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectsController extends Controller
 {
@@ -29,11 +30,15 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->id){
+            abort(403);
+        }
+
+        $user = Auth::user();
         $project = $request->isMethod('put') ? Projects::findOrFail($request->project_id) : new Projects;
         
-        $project->id = $request->input('project_id');
-        //need to be change to Auth
-        $project->id_user = 1;        
+        $project->id = $request->input('project_id');        
+        $project->id_user = $user->id;        
         $project->title = $request->input('title');
         $project->description = $request->input('description');
         $project->id_project_status = $request->input('id_project_status');
@@ -72,6 +77,9 @@ class ProjectsController extends Controller
     public function destroy($id)
     {
         $project = Projects::findOrFail($id);
+        if($project->id_user !==Auth::user()->id){
+            abort(403);
+        }
         if ($project->delete()) {
             return new ProjectsResource($project);
         } 
