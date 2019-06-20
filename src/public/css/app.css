@@ -10497,8 +10497,13 @@ body {
   border-radius: 6px;
 }
 
+.ranking-container {
+  height: 600px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 .ranking-block {
-  height: 490px;
   width: 10px;
   background-color: #523f38;
 }

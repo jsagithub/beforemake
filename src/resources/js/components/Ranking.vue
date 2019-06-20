@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ranking-container">
         <h4>Projects</h4>
         <div class="ranking-block">
             <div class="ranking-row" v-for="project in projects">                

@@ -49827,7 +49827,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "ranking-container" }, [
     _c("h4", [_vm._v("Projects")]),
     _vm._v(" "),
     _c(
